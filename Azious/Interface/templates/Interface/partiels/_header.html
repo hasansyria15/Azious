@@ -1,0 +1,72 @@
+{% load static %}
+<header class="header" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'Interface:index' %}" aria-label="Azious - Retour à l'accueil">
+                <img src="{% static 'Interface/img/logo.png' %}" alt="Azious Logo" class="header-logo">
+                <span class="brand-text">Azious</span>
+            </a>
+
+            <!-- Bouton CTA Desktop -->
+            <div class="d-none d-lg-flex order-lg-3 ms-auto">
+                <a href="#start-project" class="btn btn-primary cta-btn">
+                    Démarrer un Projet
+                </a>
+            </div>
+
+            <!-- Bouton Menu Hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Offcanvas Menu (Hamburger) -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        <img src="{% static 'Interface/img/logo.png' %}" alt="Azious" class="offcanvas-logo">
+                        <span>Menu</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'Interface:index' %}">
+                                <i class="bi bi-house-door"></i> Accueil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">
+                                <i class="bi bi-briefcase"></i> Portfolio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">
+                                <i class="bi bi-gear"></i> Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#news">
+                                <i class="bi bi-newspaper"></i> Actualités
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">
+                                <i class="bi bi-envelope"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Bouton CTA Mobile dans le menu -->
+                    <div class="d-lg-none mt-4">
+                        <a href="#start-project" class="btn btn-primary cta-btn w-100">
+                            Démarrer un Projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
