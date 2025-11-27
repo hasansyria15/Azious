@@ -49,6 +49,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'Interface/css/style.css' %}" type="text/css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'Interface/img/logo.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'Interface/img/logo.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'Interface/img/logo.png' %}">
+
     {% block extra_css %}{% endblock %}
 </head>
 

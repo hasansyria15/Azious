@@ -1,0 +1,228 @@
+<!-- Project Modal Module -->
+<div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <!-- Modal Overlay -->
+    <div class="project-modal-overlay" id="projectModalOverlay"></div>
+    
+    <!-- Modal Container -->
+    <div class="project-modal-container">
+        <!-- Modal Header -->
+        <div class="project-modal-header">
+            <div class="modal-header-content">
+                <h2 class="modal-title" id="projectModalTitle">
+                    Démarrons Votre <span class="gradient-text">Projet</span>
+                </h2>
+                <p class="modal-subtitle">
+                    Partagez votre vision avec nous et transformons-la en réalité digitale
+                </p>
+            </div>
+            <button type="button" class="modal-close-btn" id="closeProjectModal" aria-label="Fermer le modal">
+                <span class="close-icon">
+                    <span class="close-line close-line-1"></span>
+                    <span class="close-line close-line-2"></span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="project-modal-body">
+            <div class="modal-content-wrapper">
+                <!-- Left Side - Developer Character -->
+                <div class="modal-visual">
+                    <div class="developer-container">
+                        <!-- Developer Character -->
+                        <div class="developer-character">
+                            <!-- Head -->
+                            <div class="dev-head">
+                                <div class="dev-hair"></div>
+                                <div class="dev-face">
+                                    <div class="dev-eye dev-eye-left">
+                                        <div class="dev-pupil"></div>
+                                    </div>
+                                    <div class="dev-eye dev-eye-right">
+                                        <div class="dev-pupil"></div>
+                                    </div>
+                                    <div class="dev-smile"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Body -->
+                            <div class="dev-body">
+                                <div class="dev-shirt"></div>
+                                <div class="dev-arm dev-arm-left"></div>
+                                <div class="dev-arm dev-arm-right"></div>
+                            </div>
+                            
+                            <!-- Laptop -->
+                            <div class="dev-laptop">
+                                <div class="laptop-screen">
+                                    <div class="laptop-code">
+                                        <div class="laptop-code-line"></div>
+                                        <div class="laptop-code-line"></div>
+                                        <div class="laptop-code-line"></div>
+                                    </div>
+                                </div>
+                                <div class="laptop-base"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Elements -->
+                        <div class="contact-floating-elements" aria-hidden="true">
+                            <div class="float-icon float-icon-1">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <div class="float-icon float-icon-2">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <div class="float-icon float-icon-3">
+                                <i class="bi bi-stars"></i>
+                            </div>
+                        </div>
+
+                        <!-- Speech Bubble -->
+                        <div class="dev-speech-bubble">
+                            <i class="bi bi-chat-dots-fill"></i>
+                            <p>Prêt à démarrer ?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Contact Form -->
+                <div class="modal-form-wrapper">
+                    <form class="project-modal-form" id="projectModalForm" method="post" action="#" novalidate>
+                        
+                        <!-- Row 1: Nom & Prénom -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modalFirstName" class="form-label">
+                                    <i class="bi bi-person"></i>
+                                    Nom
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="modalFirstName" 
+                                    name="firstName"
+                                    placeholder="Dupont"
+                                    required
+                                    autocomplete="family-name"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="modalLastName" class="form-label">
+                                    <i class="bi bi-person-check"></i>
+                                    Prénom
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="modalLastName" 
+                                    name="lastName"
+                                    placeholder="Jean"
+                                    required
+                                    autocomplete="given-name"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Email & Téléphone -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modalEmail" class="form-label">
+                                    <i class="bi bi-envelope"></i>
+                                    Courriel
+                                </label>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="modalEmail" 
+                                    name="email"
+                                    placeholder="jean.dupont@example.com"
+                                    required
+                                    autocomplete="email"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="modalPhone" class="form-label">
+                                    <i class="bi bi-telephone"></i>
+                                    Numéro de Téléphone
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    class="form-control" 
+                                    id="modalPhone" 
+                                    name="phone"
+                                    placeholder="+33 6 12 34 56 78"
+                                    required
+                                    autocomplete="tel"
+                                >
+                                <span class="form-error" role="alert"></span>
+                            </div>
+                        </div>
+
+                        <!-- Service Type Field -->
+                        <div class="form-group">
+                            <label for="modalService" class="form-label">
+                                <i class="bi bi-grid-3x3-gap"></i>
+                                Type de Service
+                            </label>
+                            <select class="form-control" id="modalService" name="service" required>
+                                <option value="" disabled selected>Sélectionnez un service</option>
+                                <option value="website">Sites Web Professionnels</option>
+                                <option value="webapp">Applications Web</option>
+                                <option value="consulting">Consultation & Stratégie</option>
+                                <option value="redesign">Refonte & Amélioration</option>
+                                <option value="maintenance">Maintenance & Support</option>
+                            </select>
+                            <span class="form-error" role="alert"></span>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="form-group">
+                            <label for="modalMessage" class="form-label">
+                                <i class="bi bi-chat-left-text"></i>
+                                Décrivez vos Besoins
+                            </label>
+                            <textarea 
+                                class="form-control" 
+                                id="modalMessage" 
+                                name="message"
+                                rows="4"
+                                placeholder="Parlez-nous de vos besoins et de vos objectifs..."
+                                required
+                            ></textarea>
+                            <span class="form-error" role="alert"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-submit">
+                                <span class="btn-text">Démarrer le Projet</span>
+                                <span class="btn-icon">
+                                    <i class="bi bi-rocket-takeoff"></i>
+                                </span>
+                                <span class="btn-loader">
+                                    <i class="bi bi-arrow-repeat"></i>
+                                </span>
+                            </button>
+                        </div>
+
+                        <!-- Form Status Message -->
+                        <div class="form-status" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Decoration -->
+        <div class="modal-bg-decoration" aria-hidden="true">
+            <div class="decoration-gradient decoration-gradient-1"></div>
+            <div class="decoration-gradient decoration-gradient-2"></div>
+            <div class="decoration-gradient decoration-gradient-3"></div>
+        </div>
+    </div>
+</div>

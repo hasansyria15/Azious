@@ -710,17 +710,797 @@
         stages.forEach(stage => stageObserver.observe(stage));
     }
 
+    // ========================================
+    // CONTACT FORM HANDLING
+    // ========================================
+
+    function initContactForm() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        const inputs = form.querySelectorAll('.form-control');
+        const submitBtn = form.querySelector('.btn-submit');
+        const formStatus = form.querySelector('.form-status');
+
+        // Real-time validation
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) {
+                    validateField(input);
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Validate all fields
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !validateField(input)) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                showFormStatus('error', 'Veuillez corriger les erreurs dans le formulaire.');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.classList.add('loading');
+            formStatus.style.display = 'none';
+
+            // Simulate form submission (replace with actual API call)
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Success
+                showFormStatus('success', 'Merci ! Votre message a été envoyé avec succès. Nous vous répondrons sous 24h.');
+                form.reset();
+                
+                // Trigger confetti effect
+                createConfetti();
+            } catch (error) {
+                showFormStatus('error', 'Erreur lors de l\'envoi. Veuillez réessayer.');
+            } finally {
+                submitBtn.classList.remove('loading');
+            }
+        });
+
+        function validateField(field) {
+            const errorSpan = field.parentElement.querySelector('.form-error');
+            let errorMessage = '';
+
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                errorMessage = 'Ce champ est requis';
+            } else if (field.type === 'email' && field.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    errorMessage = 'Courriel invalide';
+                }
+            } else if (field.type === 'tel' && field.hasAttribute('required') && field.value) {
+                const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+                if (!phoneRegex.test(field.value) || field.value.replace(/\D/g, '').length < 10) {
+                    errorMessage = 'Numéro de téléphone invalide';
+                }
+            }
+
+            if (errorMessage) {
+                field.classList.add('error');
+                if (errorSpan) errorSpan.textContent = errorMessage;
+                return false;
+            } else {
+                field.classList.remove('error');
+                if (errorSpan) errorSpan.textContent = '';
+                return true;
+            }
+        }
+
+        function showFormStatus(type, message) {
+            formStatus.className = `form-status ${type}`;
+            formStatus.textContent = message;
+            formStatus.style.display = 'block';
+            
+            // Smooth scroll to status
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function createConfetti() {
+            const colors = ['#1D4ED8', '#16A34A', '#F59E0B', '#EF4444', '#8B5CF6'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.opacity = '1';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '9999';
+                confetti.style.borderRadius = '50%';
+                
+                document.body.appendChild(confetti);
+                
+                const duration = Math.random() * 3 + 2;
+                const rotation = Math.random() * 360;
+                
+                confetti.animate([
+                    { 
+                        transform: `translateY(0) rotate(0deg)`,
+                        opacity: 1
+                    },
+                    { 
+                        transform: `translateY(${window.innerHeight + 10}px) rotate(${rotation}deg)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+                
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }
+        }
+    }
+
+    // ========================================
+    // DEVELOPER EYES FOLLOW MOUSE
+    // ========================================
+
+    function initDeveloperEyes() {
+        const pupils = document.querySelectorAll('.dev-pupil');
+        const devCharacter = document.querySelector('.developer-character');
+        
+        if (!pupils.length || !devCharacter) return;
+
+        document.addEventListener('mousemove', (e) => {
+            const devRect = devCharacter.getBoundingClientRect();
+            const devCenterX = devRect.left + devRect.width / 2;
+            const devCenterY = devRect.top + devRect.height / 4;
+
+            pupils.forEach(pupil => {
+                const eye = pupil.parentElement;
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                const distance = Math.min(4, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 50);
+
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+
+                pupil.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+            });
+        });
+
+        // Reset on mouse leave
+        document.addEventListener('mouseleave', () => {
+            pupils.forEach(pupil => {
+                pupil.style.transform = 'translate(-50%, -50%)';
+            });
+        });
+    }
+
+    // ========================================
+    // BACK TO TOP BUTTON
+    // ========================================
+
+    function initBackToTop() {
+        const backToTopBtn = document.getElementById('backToTop');
+        if (!backToTopBtn) return;
+
+        // Show/hide button on scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top on click
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ========================================
+    // SMOOTH SCROLL FOR FOOTER LINKS
+    // ========================================
+
+    function initSmoothScroll() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+
+    // ============================================
+    // Project Modal Functions
+    // ============================================
+    
+    function initProjectModal() {
+        const modal = document.getElementById('projectModal');
+        const modalOverlay = document.getElementById('projectModalOverlay');
+        const closeBtn = document.getElementById('closeProjectModal');
+        const modalForm = document.getElementById('projectModalForm');
+        
+        // All buttons that can open the modal
+        const openButtons = document.querySelectorAll('[data-modal="project"], .cta-button, .btn-cta');
+        
+        if (!modal) return;
+        
+        // Function to open modal
+        function openModal(e) {
+            if (e) {
+                e.preventDefault();
+            }
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize developer eyes in modal
+            const modalDevEyes = modal.querySelectorAll('.dev-pupil');
+            if (modalDevEyes.length > 0) {
+                initModalDeveloperEyes(modal);
+            }
+        }
+        
+        // Function to close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Reset form
+            if (modalForm) {
+                modalForm.reset();
+                const formErrors = modalForm.querySelectorAll('.form-error');
+                formErrors.forEach(error => {
+                    error.textContent = '';
+                    error.classList.remove('show');
+                });
+                const formControls = modalForm.querySelectorAll('.form-control');
+                formControls.forEach(control => control.classList.remove('error'));
+                const formStatus = modalForm.querySelector('.form-status');
+                if (formStatus) {
+                    formStatus.classList.remove('show', 'success', 'error');
+                }
+            }
+        }
+        
+        // Add click listeners to all open buttons
+        openButtons.forEach(button => {
+            button.addEventListener('click', openModal);
+        });
+        
+        // Close button click
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+        
+        // Overlay click
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+        
+        // Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Modal form submission
+        if (modalForm) {
+            modalForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Clear previous errors
+                const formErrors = modalForm.querySelectorAll('.form-error');
+                formErrors.forEach(error => {
+                    error.textContent = '';
+                    error.classList.remove('show');
+                });
+                
+                const formControls = modalForm.querySelectorAll('.form-control');
+                formControls.forEach(control => control.classList.remove('error'));
+                
+                // Get form data
+                const formData = new FormData(modalForm);
+                const data = Object.fromEntries(formData);
+                
+                // Validation
+                let isValid = true;
+                
+                // Validate first name
+                if (!data.firstName || data.firstName.trim().length < 2) {
+                    showError('modalFirstName', 'Le nom doit contenir au moins 2 caractères');
+                    isValid = false;
+                }
+                
+                // Validate last name
+                if (!data.lastName || data.lastName.trim().length < 2) {
+                    showError('modalLastName', 'Le prénom doit contenir au moins 2 caractères');
+                    isValid = false;
+                }
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!data.email || !emailRegex.test(data.email)) {
+                    showError('modalEmail', 'Veuillez entrer une adresse courriel valide');
+                    isValid = false;
+                }
+                
+                // Validate phone
+                const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
+                if (!data.phone || !phoneRegex.test(data.phone)) {
+                    showError('modalPhone', 'Veuillez entrer un numéro de téléphone valide (min. 10 chiffres)');
+                    isValid = false;
+                }
+                
+                // Validate service
+                if (!data.service) {
+                    showError('modalService', 'Veuillez sélectionner un type de service');
+                    isValid = false;
+                }
+                
+                // Validate message
+                if (!data.message || data.message.trim().length < 10) {
+                    showError('modalMessage', 'Veuillez décrire vos besoins (min. 10 caractères)');
+                    isValid = false;
+                }
+                
+                if (!isValid) return;
+                
+                // Show loading state
+                const submitBtn = modalForm.querySelector('.btn-submit');
+                submitBtn.classList.add('loading');
+                
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    submitBtn.classList.remove('loading');
+                    
+                    // Show success message
+                    const formStatus = modalForm.querySelector('.form-status');
+                    formStatus.textContent = '🎉 Merci! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt!';
+                    formStatus.classList.add('show', 'success');
+                    
+                    // Trigger confetti
+                    createConfetti();
+                    
+                    // Reset form and close modal after delay
+                    setTimeout(() => {
+                        closeModal();
+                    }, 3000);
+                }, 2000);
+            });
+        }
+        
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = field?.nextElementSibling;
+            
+            if (field) {
+                field.classList.add('error');
+            }
+            
+            if (errorSpan && errorSpan.classList.contains('form-error')) {
+                errorSpan.textContent = message;
+                errorSpan.classList.add('show');
+            }
+        }
+    }
+    
+    // Developer eyes following mouse in modal
+    function initModalDeveloperEyes(modal) {
+        const pupils = modal.querySelectorAll('.dev-pupil');
+        
+        modal.addEventListener('mousemove', (e) => {
+            pupils.forEach(pupil => {
+                const eye = pupil.parentElement;
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+                
+                const angle = Math.atan2(e.clientX - eyeCenterX, -(e.clientY - eyeCenterY));
+                const distance = Math.min(6, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 30);
+                
+                const pupilX = Math.sin(angle) * distance;
+                const pupilY = -Math.cos(angle) * distance;
+                
+                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            });
+        });
+    }
+
+    // ============================================
+    // Services Canvas Animation
+    // ============================================
+    
+    function initServicesCanvasAnimation() {
+        const canvas = document.getElementById('servicesCanvas');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        const section = canvas.closest('.services-section');
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = section.offsetWidth;
+            canvas.height = section.offsetHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Particle class
+        class Particle {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+            
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.hue = Math.random() * 60 + 200; // Blue to teal range
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Wrap around edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+                
+                // Pulse effect
+                this.opacity += Math.sin(Date.now() * 0.001 + this.x) * 0.001;
+                this.opacity = Math.max(0.1, Math.min(0.8, this.opacity));
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
+                ctx.fill();
+                
+                // Glow effect
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = `hsla(${this.hue}, 70%, 60%, ${this.opacity * 0.5})`;
+            }
+        }
+        
+        // Code symbol class
+        class CodeSymbol {
+            constructor() {
+                this.symbols = ['<', '>', '{', '}', '[', ']', '(', ')', '/', '=', ';', ':', '.', ','];
+                this.reset();
+                this.y = Math.random() * canvas.height;
+            }
+            
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.symbol = this.symbols[Math.floor(Math.random() * this.symbols.length)];
+                this.size = Math.random() * 16 + 12;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.2 + 0.1;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+                this.hue = Math.random() * 60 + 200;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+                
+                if (this.x < -50) this.x = canvas.width + 50;
+                if (this.x > canvas.width + 50) this.x = -50;
+                if (this.y < -50) this.y = canvas.height + 50;
+                if (this.y > canvas.height + 50) this.y = -50;
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.font = `${this.size}px "Fira Code", monospace`;
+                ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.symbol, 0, 0);
+                ctx.restore();
+            }
+        }
+        
+        // Create particles and symbols
+        const particles = [];
+        const codeSymbols = [];
+        const particleCount = Math.floor(canvas.width / 10);
+        const symbolCount = Math.floor(canvas.width / 50);
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        for (let i = 0; i < symbolCount; i++) {
+            codeSymbols.push(new CodeSymbol());
+        }
+        
+        // Connect particles
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        const opacity = (1 - distance / 150) * 0.2;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        
+                        // Gradient line
+                        const gradient = ctx.createLinearGradient(
+                            particles[i].x, particles[i].y,
+                            particles[j].x, particles[j].y
+                        );
+                        gradient.addColorStop(0, `hsla(${particles[i].hue}, 70%, 60%, ${opacity})`);
+                        gradient.addColorStop(1, `hsla(${particles[j].hue}, 70%, 60%, ${opacity})`);
+                        
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            // Clear canvas completely (transparent background)
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Reset shadow
+            ctx.shadowBlur = 0;
+            
+            // Draw connections
+            connectParticles();
+            
+            // Update and draw particles
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Update and draw code symbols
+            codeSymbols.forEach(symbol => {
+                symbol.update();
+                symbol.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Start animation when section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(section);
+    }
+
+    // ============================================
+    // Morphing Icon Animation
+    // ============================================
+    
+    function initMorphingIcon() {
+        const container = document.querySelector('.morphing-icon-container');
+        const svg = document.getElementById('morphingIcon');
+        const iconGroup = document.getElementById('iconGroup');
+        
+        if (!container || !svg || !iconGroup) return;
+        
+        const stages = document.querySelectorAll('.process-stage');
+        if (stages.length === 0) return;
+        
+        // Définir les formes SVG pour chaque étape
+        const shapes = {
+            1: { // Discussion - Bulles de conversation
+                svg: `
+                    <circle cx="70" cy="80" r="35" fill="url(#gradient1)" opacity="0.9"/>
+                    <circle cx="130" cy="100" r="28" fill="url(#gradient1)" opacity="0.8"/>
+                    <path d="M 70 115 Q 75 125 85 120" stroke="url(#gradient1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 130 128 Q 135 135 145 132" stroke="url(#gradient1)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <circle cx="65" cy="75" r="4" fill="white" opacity="0.8"/>
+                    <circle cx="75" cy="75" r="4" fill="white" opacity="0.8"/>
+                    <circle cx="85" cy="75" r="4" fill="white" opacity="0.8"/>
+                `
+            },
+            2: { // Planification - Document/Plan
+                svg: `
+                    <rect x="60" y="50" width="80" height="100" rx="8" fill="url(#gradient2)" opacity="0.9"/>
+                    <line x1="75" y1="75" x2="125" y2="75" stroke="white" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+                    <line x1="75" y1="95" x2="115" y2="95" stroke="white" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+                    <line x1="75" y1="115" x2="125" y2="115" stroke="white" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+                    <circle cx="125" cy="65" r="8" fill="#FFD700" opacity="0.9"/>
+                    <path d="M 122 65 L 125 68 L 130 60" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                `
+            },
+            3: { // Développement - Brackets de code
+                svg: `
+                    <path d="M 70 60 L 80 60 L 70 80 L 80 100 L 70 120 L 80 120" 
+                          stroke="url(#gradient3)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 130 60 L 120 60 L 130 80 L 120 100 L 130 120 L 120 120" 
+                          stroke="url(#gradient3)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="100" cy="75" r="3" fill="url(#gradient3)"/>
+                    <circle cx="100" cy="90" r="3" fill="url(#gradient3)"/>
+                    <circle cx="100" cy="105" r="3" fill="url(#gradient3)"/>
+                `
+            },
+            4: { // Déploiement - Fusée/Upload
+                svg: `
+                    <path d="M 100 50 L 85 90 L 100 85 L 115 90 Z" fill="url(#gradient4)" opacity="0.9"/>
+                    <ellipse cx="100" cy="92" rx="15" ry="8" fill="url(#gradient4)" opacity="0.7"/>
+                    <path d="M 85 95 Q 85 110 90 115" stroke="#FF6B6B" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+                    <path d="M 100 95 Q 100 115 100 120" stroke="#FFD93D" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+                    <path d="M 115 95 Q 115 110 110 115" stroke="#6BCB77" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+                    <circle cx="100" cy="65" r="5" fill="white" opacity="0.8"/>
+                `
+            },
+            5: { // Livraison - Mains qui se serrent
+                svg: `
+                    <path d="M 70 100 L 70 85 Q 70 75 80 75 L 85 75 L 85 70 Q 85 65 90 65 L 95 65 L 95 70 L 100 70" 
+                          stroke="url(#gradient5)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 130 100 L 130 85 Q 130 75 120 75 L 115 75 L 115 70 Q 115 65 110 65 L 105 65 L 105 70 L 100 70" 
+                          stroke="url(#gradient5)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <ellipse cx="70" cy="105" rx="12" ry="18" fill="url(#gradient5)" opacity="0.8"/>
+                    <ellipse cx="130" cy="105" rx="12" ry="18" fill="url(#gradient5)" opacity="0.8"/>
+                    <circle cx="100" cy="85" r="8" fill="#FFD700" opacity="0.9"/>
+                    <path d="M 97 85 L 100 88 L 105 80" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                `
+            }
+        };
+        
+        // Créer les gradients
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        for (let i = 1; i <= 5; i++) {
+            const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+            gradient.setAttribute('id', `gradient${i}`);
+            gradient.setAttribute('x1', '0%');
+            gradient.setAttribute('y1', '0%');
+            gradient.setAttribute('x2', '100%');
+            gradient.setAttribute('y2', '100%');
+            
+            const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop1.setAttribute('offset', '0%');
+            stop1.setAttribute('style', 'stop-color:#1D4ED8;stop-opacity:1');
+            
+            const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop2.setAttribute('offset', '100%');
+            stop2.setAttribute('style', 'stop-color:#14B8A6;stop-opacity:1');
+            
+            gradient.appendChild(stop1);
+            gradient.appendChild(stop2);
+            defs.appendChild(gradient);
+        }
+        svg.insertBefore(defs, iconGroup);
+        
+        // Fonction pour changer la forme avec animation smooth
+        function morphToShape(stageNumber) {
+            const shape = shapes[stageNumber];
+            if (!shape) return;
+            
+            // Animation de sortie: fade out + scale down
+            iconGroup.style.opacity = '0';
+            iconGroup.style.transform = 'scale(0.8) rotate(-10deg)';
+            container.setAttribute('data-position', stageNumber);
+            
+            setTimeout(() => {
+                iconGroup.innerHTML = shape.svg;
+                // Animation d'entrée: fade in + scale up avec bounce
+                setTimeout(() => {
+                    iconGroup.style.opacity = '1';
+                    iconGroup.style.transform = 'scale(1) rotate(0deg)';
+                }, 50);
+            }, 600);
+        }
+        
+        // Observer pour détecter quelle étape est visible
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-100px 0px'
+        };
+        
+        let currentStage = 0;
+        
+        const stageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stageNum = parseInt(entry.target.getAttribute('data-stage'));
+                    if (stageNum !== currentStage) {
+                        currentStage = stageNum;
+                        morphToShape(stageNum);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        stages.forEach(stage => {
+            stageObserver.observe(stage);
+        });
+        
+        // Initialiser avec la première forme
+        morphToShape(1);
+        
+        // Styles pour des transitions ultra smooth
+        iconGroup.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        iconGroup.style.transformOrigin = 'center';
+    }
+
     // Initialize animations
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initServicesAnimations();
             initParallaxDecorations();
             initProcessAnimation();
+            initContactForm();
+            initDeveloperEyes();
+            initBackToTop();
+            initSmoothScroll();
+            initProjectModal();
+            initServicesCanvasAnimation();
+            initMorphingIcon();
         });
     } else {
         initServicesAnimations();
         initParallaxDecorations();
         initProcessAnimation();
+        initContactForm();
+        initDeveloperEyes();
+        initBackToTop();
+        initSmoothScroll();
+        initProjectModal();
+        initServicesCanvasAnimation();
+        initMorphingIcon();
     }
 
 })();

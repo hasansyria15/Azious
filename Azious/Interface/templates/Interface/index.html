@@ -42,7 +42,7 @@ développement web, création site web, applications web, design moderne, soluti
                 </p>
                 
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-lg" role="button">
+                    <a href="#" class="btn btn-primary btn-lg" role="button" data-modal="project">
                         <span>Démarrer un Projet</span>
                         <i class="bi bi-arrow-right" aria-hidden="true"></i>
                     </a>
@@ -291,8 +291,9 @@ développement web, création site web, applications web, design moderne, soluti
         </div>
     </div>
 
-    <!-- Background Decoration -->
+    <!-- Background Decoration with Canvas Animation -->
     <div class="services-bg-decoration" aria-hidden="true">
+        <canvas id="servicesCanvas" class="services-canvas"></canvas>
         <div class="decoration-circle decoration-1"></div>
         <div class="decoration-circle decoration-2"></div>
         <div class="decoration-circle decoration-3"></div>
@@ -494,6 +495,237 @@ développement web, création site web, applications web, design moderne, soluti
             </div>
         </div>
     </div>
+    
+    <!-- Animated Morphing Icon -->
+    <div class="morphing-icon-container" aria-hidden="true">
+        <svg id="morphingIcon" class="morphing-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Le SVG sera animé par JavaScript -->
+            <g id="iconGroup">
+                <!-- Les formes seront créées dynamiquement -->
+            </g>
+        </svg>
+    </div>
 </section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact" role="region" aria-label="Contactez-nous">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="section-badge">
+                <i class="bi bi-envelope-heart" aria-hidden="true"></i>
+                Contactez-nous
+            </span>
+            <h2 class="section-title">
+                Commençons Votre <span class="gradient-text">Projet</span>
+            </h2>
+            <p class="section-description">
+                Partagez votre vision avec nous et transformons-la en réalité digitale
+            </p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="contact-wrapper">
+            <!-- Left Side - Developer Character -->
+            <div class="contact-visual" data-aos="fade-right">
+                <div class="developer-container">
+                    <!-- Developer Character -->
+                    <div class="developer-character">
+                        <!-- Head -->
+                        <div class="dev-head">
+                            <div class="dev-hair"></div>
+                            <div class="dev-face">
+                                <div class="dev-eye dev-eye-left">
+                                    <div class="dev-pupil"></div>
+                                </div>
+                                <div class="dev-eye dev-eye-right">
+                                    <div class="dev-pupil"></div>
+                                </div>
+                                <div class="dev-smile"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Body -->
+                        <div class="dev-body">
+                            <div class="dev-shirt"></div>
+                            <div class="dev-arm dev-arm-left"></div>
+                            <div class="dev-arm dev-arm-right"></div>
+                        </div>
+                        
+                        <!-- Laptop -->
+                        <div class="dev-laptop">
+                            <div class="laptop-screen">
+                                <div class="laptop-code">
+                                    <div class="laptop-code-line"></div>
+                                    <div class="laptop-code-line"></div>
+                                    <div class="laptop-code-line"></div>
+                                </div>
+                            </div>
+                            <div class="laptop-base"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Elements -->
+                    <div class="contact-floating-elements" aria-hidden="true">
+                        <div class="float-icon float-icon-1">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <div class="float-icon float-icon-2">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <div class="float-icon float-icon-3">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                    </div>
+
+                    <!-- Speech Bubble -->
+                    <div class="dev-speech-bubble">
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <p>Parlez-moi de votre projet !</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Contact Form -->
+            <div class="contact-form-wrapper" data-aos="fade-left">
+                <form class="contact-form" id="contactForm" method="post" action="#" novalidate>
+                    
+                    <!-- Row 1: Nom & Prénom -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactFirstName" class="form-label">
+                                <i class="bi bi-person"></i>
+                                Nom
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="contactFirstName" 
+                                name="firstName"
+                                placeholder="Dupont"
+                                required
+                                autocomplete="family-name"
+                            >
+                            <span class="form-error" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactLastName" class="form-label">
+                                <i class="bi bi-person-check"></i>
+                                Prénom
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="contactLastName" 
+                                name="lastName"
+                                placeholder="Jean"
+                                required
+                                autocomplete="given-name"
+                            >
+                            <span class="form-error" role="alert"></span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Email & Téléphone -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">
+                                <i class="bi bi-envelope"></i>
+                                Courriel
+                            </label>
+                            <input 
+                                type="email" 
+                                class="form-control" 
+                                id="contactEmail" 
+                                name="email"
+                                placeholder="jean.dupont@example.com"
+                                required
+                                autocomplete="email"
+                            >
+                            <span class="form-error" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone" class="form-label">
+                                <i class="bi bi-telephone"></i>
+                                Numéro de Téléphone
+                            </label>
+                            <input 
+                                type="tel" 
+                                class="form-control" 
+                                id="contactPhone" 
+                                name="phone"
+                                placeholder="+33 6 12 34 56 78"
+                                required
+                                autocomplete="tel"
+                            >
+                            <span class="form-error" role="alert"></span>
+                        </div>
+                    </div>
+
+                    <!-- Service Type Field -->
+                    <div class="form-group">
+                        <label for="contactService" class="form-label">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                            Type de Service
+                        </label>
+                        <select class="form-control" id="contactService" name="service" required>
+                            <option value="" disabled selected>Sélectionnez un service</option>
+                            <option value="website">Sites Web Professionnels</option>
+                            <option value="webapp">Applications Web</option>
+                            <option value="consulting">Consultation & Stratégie</option>
+                            <option value="redesign">Refonte & Amélioration</option>
+                            <option value="maintenance">Maintenance & Support</option>
+                        </select>
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="form-group">
+                        <label for="contactMessage" class="form-label">
+                            <i class="bi bi-chat-left-text"></i>
+                            Décrivez vos Besoins
+                        </label>
+                        <textarea 
+                            class="form-control" 
+                            id="contactMessage" 
+                            name="message"
+                            rows="5"
+                            placeholder="Parlez-nous de vos besoins et de vos objectifs..."
+                            required
+                        ></textarea>
+                        <span class="form-error" role="alert"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-submit">
+                            <span class="btn-text">Envoyer le Message</span>
+                            <span class="btn-icon">
+                                <i class="bi bi-send"></i>
+                            </span>
+                            <span class="btn-loader">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Form Status Message -->
+                    <div class="form-status" role="status" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="contact-bg-decoration" aria-hidden="true">
+        <div class="decoration-gradient decoration-gradient-1"></div>
+        <div class="decoration-gradient decoration-gradient-2"></div>
+    </div>
+</section>
+
+<!-- Include Project Modal -->
+{% include 'Interface/partiels/_module-Project.html' %}
 
 {% endblock %}
