@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,12 +20,25 @@
     <meta property="og:title" content="{% block og_title %}Azious - Solutions Web Professionnelles{% endblock %}">
     <meta property="og:description"
         content="{% block og_description %}Découvrez nos services de développement web et design innovants{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{% static 'Interface/img/logo.png' %}{% endblock %}">
+    <meta property="og:site_name" content="Azious">
+    <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
     <meta property="twitter:title"
         content="{% block twitter_title %}Azious - Solutions Web Professionnelles{% endblock %}">
+    <meta property="twitter:description"
+        content="{% block twitter_description %}Découvrez nos services de développement web et design innovants{% endblock %}">
+    <meta property="twitter:image" content="{% block twitter_image %}{% static 'Interface/img/logo.png' %}{% endblock %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    <!-- Theme Color & Robots -->
+    <meta name="theme-color" content="#1D4ED8">
+    <meta name="robots" content="index, follow">
 
     <title>{% block title %}Azious - Solutions Web Professionnelles{% endblock %}</title>
 
@@ -46,7 +60,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Styles -->
-    {% load static %}
     <link rel="stylesheet" href="{% static 'Interface/css/style.css' %}" type="text/css">
 
     <!-- Favicon -->
