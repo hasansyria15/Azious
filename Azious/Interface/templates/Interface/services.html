@@ -1,0 +1,775 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nos Services - Azious | Solutions Web Professionnelles{% endblock %}
+
+{% block meta_description %}Découvrez nos services de développement web : sites professionnels, applications web,
+consultation stratégique, refonte et maintenance. Solutions sur mesure pour votre succès digital.{% endblock %}
+
+{% block meta_keywords %}services web, développement site internet, application web, consultation digitale, maintenance
+web, refonte site{% endblock %}
+
+{% block og_title %}Nos Services - Azious | Solutions Web Sur Mesure{% endblock %}
+
+{% block og_description %}Sites web professionnels, applications web, consultation stratégique et maintenance. Découvrez
+comment Azious peut transformer votre présence digitale.{% endblock %}
+
+{% block og_image %}{% static 'Interface/img/services/Developpeur_site_web.png' %}{% endblock %}
+
+{% block twitter_title %}Nos Services - Azious | Solutions Web Sur Mesure{% endblock %}
+{% block twitter_description %}Sites web professionnels, applications web, consultation stratégique et maintenance.
+Découvrez comment Azious peut transformer votre présence digitale.{% endblock %}
+{% block twitter_image %}{% static 'Interface/img/services/Developpeur_site_web.png' %}{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section Services -->
+<section class="services-hero" role="banner" aria-label="Section héro services">
+    <div class="services-hero-bg">
+        <div class="hero-gradient-orb orb-1"></div>
+        <div class="hero-gradient-orb orb-2"></div>
+        <div class="hero-gradient-orb orb-3"></div>
+        <canvas id="servicesHeroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="container">
+        <div class="services-hero-content text-center">
+            <span class="hero-badge" data-aos="fade-down" data-aos-duration="800">
+                <i class="bi bi-gear-wide-connected" aria-hidden="true"></i>
+                Nos Expertises
+            </span>
+            <h1 class="services-hero-title" data-aos="fade-up" data-aos-duration="1000">
+                Des Solutions Web
+                <span class="gradient-text">Sur Mesure</span>
+                Pour Votre Succès
+            </h1>
+            <p class="services-hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                De la conception à la maintenance, nous vous accompagnons à chaque étape
+                de votre transformation digitale avec des solutions innovantes et performantes.
+            </p>
+            <div class="hero-cta-row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="#services-list" class="btn btn-hero-primary">
+                    <span>Découvrir Nos Services</span>
+                    <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                </a>
+                <a href="{% url 'Interface:index' %}#contact" class="btn btn-hero-secondary">
+                    <span>Demander un Devis</span>
+                    <i class="bi bi-chat-dots" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- Services Overview Stats -->
+<section class="services-stats" role="region" aria-label="Statistiques services">
+    <div class="container">
+        <div class="stats-grid" data-aos="fade-up">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="bi bi-briefcase-fill" aria-hidden="true"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="50">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Projets Réalisés</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="bi bi-people-fill" aria-hidden="true"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="40">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Clients Satisfaits</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="bi bi-award-fill" aria-hidden="true"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Années d'Expérience</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-percent">%</span>
+                    <span class="stat-label">Satisfaction Client</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Services Section -->
+<section class="services-main" id="services-list" role="region" aria-label="Liste des services">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="section-badge">
+                <i class="bi bi-grid-3x3-gap-fill" aria-hidden="true"></i>
+                Ce Que Nous Offrons
+            </span>
+            <h2 class="section-title">Nos Services</h2>
+            <p class="section-subtitle">
+                Des solutions complètes pour répondre à tous vos besoins digitaux,
+                de la création à l'optimisation de votre présence en ligne.
+            </p>
+        </div>
+
+        <!-- Service 1: Sites Web Professionnels -->
+        <div class="service-showcase" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-image-wrapper">
+                        <div class="service-image-frame">
+                            <img src="{% static 'Interface/img/services/Developpeur_site_web.png' %}"
+                                alt="Développeur créant un site web professionnel" class="service-image" width="600"
+                                height="400" loading="eager">
+                        </div>
+                        <div class="service-image-decoration">
+                            <div class="deco-circle circle-1"></div>
+                            <div class="deco-circle circle-2"></div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-number">01</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="service-details">
+                        <div class="service-icon-large">
+                            <i class="bi bi-globe2" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title-large">Sites Web Professionnels</h3>
+                        <p class="service-description-large">
+                            Création de sites web modernes, responsives et optimisés SEO.
+                            Design sur mesure qui reflète votre identité de marque et convertit
+                            vos visiteurs en clients.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Design Responsive & Mobile-First</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Optimisation SEO Avancée</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Performance & Vitesse Maximales</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Interface Utilisateur Intuitive</span>
+                            </li>
+                        </ul>
+                        <div class="service-technologies">
+                            <span class="tech-label">Technologies :</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Django</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Applications Web -->
+        <div class="service-showcase reverse" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="service-image-wrapper">
+                        <div class="service-image-frame">
+                            <img src="{% static 'Interface/img/services/developpeur_logiciel.png' %}"
+                                alt="Développeur travaillant sur une application web" class="service-image" width="600"
+                                height="400" loading="lazy">
+                        </div>
+                        <div class="service-image-decoration">
+                            <div class="deco-circle circle-1"></div>
+                            <div class="deco-circle circle-2"></div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-number">02</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-details">
+                        <div class="service-icon-large">
+                            <i class="bi bi-window-stack" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title-large">Applications Web</h3>
+                        <p class="service-description-large">
+                            Développement d'applications web complexes et évolutives.
+                            Solutions SaaS, dashboards interactifs et plateformes personnalisées
+                            pour automatiser vos processus.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Architecture Scalable & Modulaire</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>API RESTful & GraphQL</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Sécurité Renforcée & RGPD</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Intégrations Tierces</span>
+                            </li>
+                        </ul>
+                        <div class="service-technologies">
+                            <span class="tech-label">Technologies :</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Consultation & Stratégie -->
+        <div class="service-showcase" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-image-wrapper">
+                        <div class="service-image-frame">
+                            <img src="{% static 'Interface/img/services/consulting_strategique.png' %}"
+                                alt="Équipe en consultation stratégique digitale" class="service-image" width="600"
+                                height="400" loading="lazy">
+                        </div>
+                        <div class="service-image-decoration">
+                            <div class="deco-circle circle-1"></div>
+                            <div class="deco-circle circle-2"></div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-number">03</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="service-details">
+                        <div class="service-icon-large">
+                            <i class="bi bi-lightbulb" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title-large">Consultation & Stratégie</h3>
+                        <p class="service-description-large">
+                            Audit technique complet, conseil en architecture et stratégie digitale.
+                            Accompagnement expert pour définir la meilleure approche
+                            pour vos projets web.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Audit Technique Approfondi</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Architecture & Best Practices</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Roadmap Projet Détaillée</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Recommandations Technologiques</span>
+                            </li>
+                        </ul>
+                        <div class="service-technologies">
+                            <span class="tech-label">Expertise :</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Audit SEO</span>
+                                <span class="tech-tag">UX/UI</span>
+                                <span class="tech-tag">Performance</span>
+                                <span class="tech-tag">Sécurité</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Refonte & Amélioration -->
+        <div class="service-showcase reverse" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="service-image-wrapper">
+                        <div class="service-image-frame">
+                            <img src="{% static 'Interface/img/services/amloirer_code.jpg' %}"
+                                alt="Amélioration et refonte de code existant" class="service-image" width="600"
+                                height="400" loading="lazy">
+                        </div>
+                        <div class="service-image-decoration">
+                            <div class="deco-circle circle-1"></div>
+                            <div class="deco-circle circle-2"></div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-number">04</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-details">
+                        <div class="service-icon-large">
+                            <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title-large">Refonte & Amélioration</h3>
+                        <p class="service-description-large">
+                            Modernisation de sites existants, optimisation des performances
+                            et amélioration de l'expérience utilisateur. Donnez une nouvelle vie
+                            à votre présence digitale.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Modernisation UI/UX Complète</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Optimisation Vitesse & Core Web Vitals</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Migration Technologique</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Refactoring & Clean Code</span>
+                            </li>
+                        </ul>
+                        <div class="service-technologies">
+                            <span class="tech-label">Outils :</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Lighthouse</span>
+                                <span class="tech-tag">GTmetrix</span>
+                                <span class="tech-tag">PageSpeed</span>
+                                <span class="tech-tag">Webpack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: Maintenance & Support -->
+        <div class="service-showcase" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="service-image-wrapper">
+                        <div class="service-image-frame">
+                            <img src="{% static 'Interface/img/services/mainteance_support.png' %}"
+                                alt="Équipe de support et maintenance technique" class="service-image" width="600"
+                                height="400" loading="lazy">
+                        </div>
+                        <div class="service-image-decoration">
+                            <div class="deco-circle circle-1"></div>
+                            <div class="deco-circle circle-2"></div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-number">05</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="service-details">
+                        <div class="service-icon-large">
+                            <i class="bi bi-headset" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title-large">Maintenance & Support</h3>
+                        <p class="service-description-large">
+                            Support technique réactif, mises à jour régulières et maintenance
+                            proactive de vos applications web. Nous veillons au bon fonctionnement
+                            de votre infrastructure.
+                        </p>
+                        <ul class="service-features-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Support Technique Réactif</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Mises à Jour & Patches Sécurité</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Monitoring & Alertes 24/7</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                                <span>Sauvegardes Automatiques</span>
+                            </li>
+                        </ul>
+                        <div class="service-technologies">
+                            <span class="tech-label">Outils :</span>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Sentry</span>
+                                <span class="tech-tag">Uptime Robot</span>
+                                <span class="tech-tag">GitHub</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="services-process" role="region" aria-label="Notre processus">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="section-badge">
+                <i class="bi bi-diagram-3-fill" aria-hidden="true"></i>
+                Notre Approche
+            </span>
+            <h2 class="section-title">Comment Nous Travaillons</h2>
+            <p class="section-subtitle">
+                Une méthodologie éprouvée pour garantir le succès de chaque projet,
+                de la première idée à la mise en production.
+            </p>
+        </div>
+
+        <div class="process-timeline">
+            <!-- Step 1 -->
+            <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-connector"></div>
+                <div class="step-icon">
+                    <i class="bi bi-chat-square-text" aria-hidden="true"></i>
+                    <span class="step-number">01</span>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Découverte</h3>
+                    <p class="step-description">
+                        Analyse approfondie de vos besoins, objectifs et contraintes
+                        pour définir la solution idéale.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-connector"></div>
+                <div class="step-icon">
+                    <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                    <span class="step-number">02</span>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Conception</h3>
+                    <p class="step-description">
+                        Création des maquettes, wireframes et prototypes
+                        pour visualiser votre projet avant développement.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-connector"></div>
+                <div class="step-icon">
+                    <i class="bi bi-code-slash" aria-hidden="true"></i>
+                    <span class="step-number">03</span>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Développement</h3>
+                    <p class="step-description">
+                        Codage propre et testé avec les dernières technologies
+                        et meilleures pratiques du secteur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-connector"></div>
+                <div class="step-icon">
+                    <i class="bi bi-bug" aria-hidden="true"></i>
+                    <span class="step-number">04</span>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Tests & QA</h3>
+                    <p class="step-description">
+                        Tests rigoureux sur tous les appareils et navigateurs
+                        pour garantir une qualité irréprochable.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                <div class="step-icon final">
+                    <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+                    <span class="step-number">05</span>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Lancement</h3>
+                    <p class="step-description">
+                        Déploiement sécurisé, formation et accompagnement
+                        pour un lancement réussi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="services-pricing" role="region" aria-label="Nos formules">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="section-badge">
+                <i class="bi bi-tag-fill" aria-hidden="true"></i>
+                Tarification Transparente
+            </span>
+            <h2 class="section-title">Nos Formules</h2>
+            <p class="section-subtitle">
+                Des solutions adaptées à chaque budget et à chaque ambition.
+                Contactez-nous pour un devis personnalisé.
+            </p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="pricing-header">
+                    <span class="pricing-badge">Essentiel</span>
+                    <h3 class="pricing-title">Starter</h3>
+                    <p class="pricing-description">
+                        Parfait pour les petites entreprises et startups
+                    </p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">999</span>
+                    <span class="price-period">à partir de</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Site vitrine jusqu'à 5 pages</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Design responsive</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Optimisation SEO de base</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Formulaire de contact</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> 1 mois de support</li>
+                </ul>
+                <a href="{% url 'Interface:index' %}#contact" class="btn btn-pricing">
+                    <span>Choisir ce Plan</span>
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-popular">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    Populaire
+                </div>
+                <div class="pricing-header">
+                    <span class="pricing-badge">Recommandé</span>
+                    <h3 class="pricing-title">Business</h3>
+                    <p class="pricing-description">
+                        Idéal pour les entreprises en croissance
+                    </p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">2,499</span>
+                    <span class="price-period">à partir de</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Site jusqu'à 15 pages</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Design sur mesure</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> SEO avancé</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Blog intégré</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Panneau d'administration</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> 3 mois de support</li>
+                </ul>
+                <a href="{% url 'Interface:index' %}#contact" class="btn btn-pricing-featured">
+                    <span>Choisir ce Plan</span>
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="pricing-header">
+                    <span class="pricing-badge">Premium</span>
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <p class="pricing-description">
+                        Solutions complètes pour les grandes entreprises
+                    </p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-custom">Sur Devis</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Application web complète</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Architecture sur mesure</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> API & Intégrations</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Sécurité renforcée</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Formation équipe</li>
+                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Support prioritaire 12 mois</li>
+                </ul>
+                <a href="{% url 'Interface:index' %}#contact" class="btn btn-pricing">
+                    <span>Nous Contacter</span>
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="services-faq" role="region" aria-label="Questions fréquentes">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="section-badge">
+                <i class="bi bi-question-circle-fill" aria-hidden="true"></i>
+                FAQ
+            </span>
+            <h2 class="section-title">Questions Fréquentes</h2>
+            <p class="section-subtitle">
+                Retrouvez les réponses aux questions les plus courantes
+                concernant nos services.
+            </p>
+        </div>
+
+        <div class="faq-accordion" data-aos="fade-up" data-aos-delay="100">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+                    <span>Combien de temps faut-il pour créer un site web ?</span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer" id="faq1">
+                    <p>
+                        Le délai dépend de la complexité du projet. Un site vitrine prend généralement
+                        2 à 4 semaines, tandis qu'une application web complexe peut nécessiter
+                        2 à 6 mois. Nous établissons un planning détaillé dès le début du projet.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+                    <span>Proposez-vous des contrats de maintenance ?</span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer" id="faq2">
+                    <p>
+                        Oui, nous proposons des contrats de maintenance mensuels ou annuels
+                        qui incluent les mises à jour de sécurité, le monitoring, les sauvegardes
+                        régulières et un support technique dédié.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+                    <span>Mon site sera-t-il optimisé pour les mobiles ?</span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer" id="faq3">
+                    <p>
+                        Absolument ! Tous nos sites sont développés avec une approche "Mobile-First".
+                        Ils s'adaptent parfaitement à tous les écrans : smartphones, tablettes,
+                        ordinateurs portables et moniteurs de bureau.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+                    <span>Puis-je modifier mon site moi-même après la livraison ?</span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer" id="faq4">
+                    <p>
+                        Oui, nous développons des interfaces d'administration intuitives
+                        qui vous permettent de modifier le contenu de votre site en toute autonomie.
+                        Nous offrons également une formation pour vous accompagner.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+                    <span>Quels modes de paiement acceptez-vous ?</span>
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-answer" id="faq5">
+                    <p>
+                        Nous acceptons les virements bancaires, PayPal et les paiements par carte.
+                        Les projets sont généralement réglés en plusieurs étapes :
+                        30% à la signature, 40% à mi-parcours et 30% à la livraison.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="services-cta-section" role="region" aria-label="Appel à l'action">
+    <div class="container">
+        <div class="cta-card" data-aos="zoom-in" data-aos-duration="800">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Prêt à Lancer Votre Projet ?
+                </h2>
+                <p class="cta-description">
+                    Contactez-nous dès aujourd'hui pour discuter de votre projet
+                    et obtenir un devis personnalisé gratuit.
+                </p>
+                <div class="cta-buttons">
+                    <a href="{% url 'Interface:index' %}#contact" class="btn btn-cta-primary">
+                        <span>Demander un Devis Gratuit</span>
+                        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'Interface:about' %}" class="btn btn-cta-secondary">
+                        <span>En Savoir Plus</span>
+                        <i class="bi bi-info-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="cta-decoration" aria-hidden="true">
+                <div class="cta-shape shape-1"></div>
+                <div class="cta-shape shape-2"></div>
+                <div class="cta-shape shape-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

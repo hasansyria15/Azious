@@ -173,11 +173,11 @@
 
         // Animation des éléments du menu en cascade
         const allLinks = menuList ? menuList.querySelectorAll('.menu-link') : [];
-        
+
         allLinks.forEach((link, index) => {
             link.style.opacity = '0';
             link.style.transform = 'translateX(30px)';
-            
+
             setTimeout(() => {
                 link.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
                 link.style.opacity = '1';
@@ -189,7 +189,7 @@
         if (menuCta) {
             menuCta.style.opacity = '0';
             menuCta.style.transform = 'translateY(30px) scale(0.9)';
-            
+
             setTimeout(() => {
                 menuCta.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
                 menuCta.style.opacity = '1';
@@ -203,7 +203,7 @@
             socialLinks.forEach((link, index) => {
                 link.style.opacity = '0';
                 link.style.transform = 'translateY(30px) rotate(-10deg)';
-                
+
                 setTimeout(() => {
                     link.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
                     link.style.opacity = '1';
@@ -224,7 +224,7 @@
     // ========================================
     // 🎨 GESTION DU MENU FULLSCREEN PROFESSIONNEL
     // ========================================
-    
+
     if (fullscreenMenu) {
         if (menuToggle) {
             menuToggle.addEventListener('click', (e) => {
@@ -232,14 +232,14 @@
                 openFullscreenMenu();
             });
         }
-        
+
         if (menuCloseBtn) {
             menuCloseBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 closeFullscreenMenu();
             });
         }
-        
+
         // Fermer au clic sur un lien
         const allMenuLinks = fullscreenMenu.querySelectorAll('.menu-link, .menu-cta');
         allMenuLinks.forEach(link => {
@@ -248,42 +248,42 @@
             });
         });
     }
-    
+
     function openFullscreenMenu() {
         if (isAnimating || !fullscreenMenu) return;
         isAnimating = true;
-        
+
         // Afficher le menu
         fullscreenMenu.classList.add('show');
         document.body.style.overflow = 'hidden';
         menuToggle.classList.add('active');
-        
+
         // Animer l'ouverture
         animateMenuOpen();
-        
+
         setTimeout(() => {
             isAnimating = false;
         }, 1500);
     }
-    
+
     function closeFullscreenMenu() {
         if (!fullscreenMenu || !fullscreenMenu.classList.contains('show')) return;
         if (isAnimating) return;
-        
+
         isAnimating = true;
-        
+
         fullscreenMenu.classList.remove('show');
         document.body.style.overflow = '';
         if (menuToggle) {
             menuToggle.classList.remove('active');
         }
-        
+
         setTimeout(() => {
             resetMenuStyles();
             isAnimating = false;
         }, 250);
     }
-    
+
     function resetMenuStyles() {
         // Réinitialiser tous les styles pour la prochaine ouverture
         const allLinks = menuList ? menuList.querySelectorAll('.menu-link') : [];
@@ -292,13 +292,13 @@
             link.style.transform = '';
             link.style.transition = '';
         });
-        
+
         if (menuCta) {
             menuCta.style.opacity = '';
             menuCta.style.transform = '';
             menuCta.style.transition = '';
         }
-        
+
         if (menuSocial) {
             const socialLinks = menuSocial.querySelectorAll('.social-link');
             socialLinks.forEach(link => {
@@ -426,13 +426,13 @@
             // After 2 complete cycles, show the website preview
             if (currentLine >= codeSnippets.length) {
                 cycleCount++;
-                
+
                 if (cycleCount >= 1 && !isShowingWebsite) {
                     // Transform to website
                     showWebsitePreview();
                     return;
                 }
-                
+
                 // Reset and start over
                 setTimeout(() => {
                     codeContainer.innerHTML = '';
@@ -446,7 +446,7 @@
 
             const snippet = codeSnippets[currentLine];
             const lineHtml = formatCodeLine(snippet, currentLine + 1);
-            
+
             codeContainer.insertAdjacentHTML('beforeend', lineHtml);
 
             // Remove old lines if too many
@@ -468,7 +468,7 @@
 
         function showWebsitePreview() {
             isShowingWebsite = true;
-            
+
             // Fade out code
             codeContainer.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             codeContainer.style.opacity = '0';
@@ -505,7 +505,7 @@
                         </div>
                     </div>
                 `;
-                
+
                 codeContainer.style.opacity = '1';
                 codeContainer.style.transform = 'scale(1)';
 
@@ -513,7 +513,7 @@
                 setTimeout(() => {
                     codeContainer.style.opacity = '0';
                     codeContainer.style.transform = 'scale(0.95)';
-                    
+
                     setTimeout(() => {
                         codeContainer.innerHTML = '';
                         currentLine = 0;
@@ -543,7 +543,7 @@
             'Votre Vision',
             'le Futur'
         ];
-        
+
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -667,7 +667,7 @@
     function initProcessAnimation() {
         const stages = document.querySelectorAll('.process-stage');
         const arrows = document.querySelectorAll('.process-arrow');
-        
+
         if (stages.length === 0) return;
 
         // Set CSS variables for confetti
@@ -695,7 +695,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
+
                     // Animate corresponding arrow
                     const stageIndex = Array.from(stages).indexOf(entry.target);
                     if (arrows[stageIndex]) {
@@ -735,7 +735,7 @@
         // Form submission
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // Validate all fields
             let isValid = true;
             inputs.forEach(input => {
@@ -756,11 +756,11 @@
             // Simulate form submission (replace with actual API call)
             try {
                 await new Promise(resolve => setTimeout(resolve, 2000));
-                
+
                 // Success
                 showFormStatus('success', 'Merci ! Votre message a été envoyé avec succès. Nous vous répondrons sous 24h.');
                 form.reset();
-                
+
                 // Trigger confetti effect
                 createConfetti();
             } catch (error) {
@@ -803,7 +803,7 @@
             formStatus.className = `form-status ${type}`;
             formStatus.textContent = message;
             formStatus.style.display = 'block';
-            
+
             // Smooth scroll to status
             formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
@@ -811,7 +811,7 @@
         function createConfetti() {
             const colors = ['#1D4ED8', '#16A34A', '#F59E0B', '#EF4444', '#8B5CF6'];
             const confettiCount = 50;
-            
+
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.style.position = 'fixed';
@@ -824,18 +824,18 @@
                 confetti.style.pointerEvents = 'none';
                 confetti.style.zIndex = '9999';
                 confetti.style.borderRadius = '50%';
-                
+
                 document.body.appendChild(confetti);
-                
+
                 const duration = Math.random() * 3 + 2;
                 const rotation = Math.random() * 360;
-                
+
                 confetti.animate([
-                    { 
+                    {
                         transform: `translateY(0) rotate(0deg)`,
                         opacity: 1
                     },
-                    { 
+                    {
                         transform: `translateY(${window.innerHeight + 10}px) rotate(${rotation}deg)`,
                         opacity: 0
                     }
@@ -843,7 +843,7 @@
                     duration: duration * 1000,
                     easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                 });
-                
+
                 setTimeout(() => confetti.remove(), duration * 1000);
             }
         }
@@ -856,7 +856,7 @@
     function initDeveloperEyes() {
         const pupils = document.querySelectorAll('.dev-pupil');
         const devCharacter = document.querySelector('.developer-character');
-        
+
         if (!pupils.length || !devCharacter) return;
 
         document.addEventListener('mousemove', (e) => {
@@ -920,12 +920,12 @@
 
     function initSmoothScroll() {
         const links = document.querySelectorAll('a[href^="#"]');
-        
+
         links.forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
                 if (href === '#') return;
-                
+
                 const target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
@@ -941,18 +941,18 @@
     // ============================================
     // Project Modal Functions
     // ============================================
-    
+
     function initProjectModal() {
         const modal = document.getElementById('projectModal');
         const modalOverlay = document.getElementById('projectModalOverlay');
         const closeBtn = document.getElementById('closeProjectModal');
         const modalForm = document.getElementById('projectModalForm');
-        
+
         // All buttons that can open the modal
         const openButtons = document.querySelectorAll('[data-modal="project"], .cta-button, .btn-cta');
-        
+
         if (!modal) return;
-        
+
         // Function to open modal
         function openModal(e) {
             if (e) {
@@ -960,19 +960,19 @@
             }
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
+
             // Initialize developer eyes in modal
             const modalDevEyes = modal.querySelectorAll('.dev-pupil');
             if (modalDevEyes.length > 0) {
                 initModalDeveloperEyes(modal);
             }
         }
-        
+
         // Function to close modal
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            
+
             // Reset form
             if (modalForm) {
                 modalForm.reset();
@@ -989,107 +989,107 @@
                 }
             }
         }
-        
+
         // Add click listeners to all open buttons
         openButtons.forEach(button => {
             button.addEventListener('click', openModal);
         });
-        
+
         // Close button click
         if (closeBtn) {
             closeBtn.addEventListener('click', closeModal);
         }
-        
+
         // Overlay click
         if (modalOverlay) {
             modalOverlay.addEventListener('click', closeModal);
         }
-        
+
         // Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
             }
         });
-        
+
         // Modal form submission
         if (modalForm) {
             modalForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
+
                 // Clear previous errors
                 const formErrors = modalForm.querySelectorAll('.form-error');
                 formErrors.forEach(error => {
                     error.textContent = '';
                     error.classList.remove('show');
                 });
-                
+
                 const formControls = modalForm.querySelectorAll('.form-control');
                 formControls.forEach(control => control.classList.remove('error'));
-                
+
                 // Get form data
                 const formData = new FormData(modalForm);
                 const data = Object.fromEntries(formData);
-                
+
                 // Validation
                 let isValid = true;
-                
+
                 // Validate first name
                 if (!data.firstName || data.firstName.trim().length < 2) {
                     showError('modalFirstName', 'Le nom doit contenir au moins 2 caractères');
                     isValid = false;
                 }
-                
+
                 // Validate last name
                 if (!data.lastName || data.lastName.trim().length < 2) {
                     showError('modalLastName', 'Le prénom doit contenir au moins 2 caractères');
                     isValid = false;
                 }
-                
+
                 // Validate email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!data.email || !emailRegex.test(data.email)) {
                     showError('modalEmail', 'Veuillez entrer une adresse courriel valide');
                     isValid = false;
                 }
-                
+
                 // Validate phone
                 const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
                 if (!data.phone || !phoneRegex.test(data.phone)) {
                     showError('modalPhone', 'Veuillez entrer un numéro de téléphone valide (min. 10 chiffres)');
                     isValid = false;
                 }
-                
+
                 // Validate service
                 if (!data.service) {
                     showError('modalService', 'Veuillez sélectionner un type de service');
                     isValid = false;
                 }
-                
+
                 // Validate message
                 if (!data.message || data.message.trim().length < 10) {
                     showError('modalMessage', 'Veuillez décrire vos besoins (min. 10 caractères)');
                     isValid = false;
                 }
-                
+
                 if (!isValid) return;
-                
+
                 // Show loading state
                 const submitBtn = modalForm.querySelector('.btn-submit');
                 submitBtn.classList.add('loading');
-                
+
                 // Simulate form submission (replace with actual API call)
                 setTimeout(() => {
                     submitBtn.classList.remove('loading');
-                    
+
                     // Show success message
                     const formStatus = modalForm.querySelector('.form-status');
                     formStatus.textContent = '🎉 Merci! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt!';
                     formStatus.classList.add('show', 'success');
-                    
+
                     // Trigger confetti
                     createConfetti();
-                    
+
                     // Reset form and close modal after delay
                     setTimeout(() => {
                         closeModal();
@@ -1097,39 +1097,39 @@
                 }, 2000);
             });
         }
-        
+
         function showError(fieldId, message) {
             const field = document.getElementById(fieldId);
             const errorSpan = field?.nextElementSibling;
-            
+
             if (field) {
                 field.classList.add('error');
             }
-            
+
             if (errorSpan && errorSpan.classList.contains('form-error')) {
                 errorSpan.textContent = message;
                 errorSpan.classList.add('show');
             }
         }
     }
-    
+
     // Developer eyes following mouse in modal
     function initModalDeveloperEyes(modal) {
         const pupils = modal.querySelectorAll('.dev-pupil');
-        
+
         modal.addEventListener('mousemove', (e) => {
             pupils.forEach(pupil => {
                 const eye = pupil.parentElement;
                 const eyeRect = eye.getBoundingClientRect();
                 const eyeCenterX = eyeRect.left + eyeRect.width / 2;
                 const eyeCenterY = eyeRect.top + eyeRect.height / 2;
-                
+
                 const angle = Math.atan2(e.clientX - eyeCenterX, -(e.clientY - eyeCenterY));
                 const distance = Math.min(6, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 30);
-                
+
                 const pupilX = Math.sin(angle) * distance;
                 const pupilY = -Math.cos(angle) * distance;
-                
+
                 pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
             });
         });
@@ -1138,23 +1138,23 @@
     // ============================================
     // Services Canvas Animation
     // ============================================
-    
+
     function initServicesCanvasAnimation() {
         const canvas = document.getElementById('servicesCanvas');
         if (!canvas) return;
-        
+
         const ctx = canvas.getContext('2d');
         const section = canvas.closest('.services-section');
-        
+
         // Set canvas size
         function resizeCanvas() {
             canvas.width = section.offsetWidth;
             canvas.height = section.offsetHeight;
         }
-        
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        
+
         // Particle class
         class Particle {
             constructor() {
@@ -1162,7 +1162,7 @@
                 this.y = Math.random() * canvas.height;
                 this.opacity = Math.random() * 0.5 + 0.3;
             }
-            
+
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
@@ -1172,34 +1172,34 @@
                 this.opacity = Math.random() * 0.5 + 0.3;
                 this.hue = Math.random() * 60 + 200; // Blue to teal range
             }
-            
+
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                
+
                 // Wrap around edges
                 if (this.x < 0) this.x = canvas.width;
                 if (this.x > canvas.width) this.x = 0;
                 if (this.y < 0) this.y = canvas.height;
                 if (this.y > canvas.height) this.y = 0;
-                
+
                 // Pulse effect
                 this.opacity += Math.sin(Date.now() * 0.001 + this.x) * 0.001;
                 this.opacity = Math.max(0.1, Math.min(0.8, this.opacity));
             }
-            
+
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
                 ctx.fill();
-                
+
                 // Glow effect
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = `hsla(${this.hue}, 70%, 60%, ${this.opacity * 0.5})`;
             }
         }
-        
+
         // Code symbol class
         class CodeSymbol {
             constructor() {
@@ -1207,7 +1207,7 @@
                 this.reset();
                 this.y = Math.random() * canvas.height;
             }
-            
+
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
@@ -1220,18 +1220,18 @@
                 this.rotationSpeed = (Math.random() - 0.5) * 0.02;
                 this.hue = Math.random() * 60 + 200;
             }
-            
+
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.rotation += this.rotationSpeed;
-                
+
                 if (this.x < -50) this.x = canvas.width + 50;
                 if (this.x > canvas.width + 50) this.x = -50;
                 if (this.y < -50) this.y = canvas.height + 50;
                 if (this.y > canvas.height + 50) this.y = -50;
             }
-            
+
             draw() {
                 ctx.save();
                 ctx.translate(this.x, this.y);
@@ -1244,21 +1244,21 @@
                 ctx.restore();
             }
         }
-        
+
         // Create particles and symbols
         const particles = [];
         const codeSymbols = [];
         const particleCount = Math.floor(canvas.width / 10);
         const symbolCount = Math.floor(canvas.width / 50);
-        
+
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
-        
+
         for (let i = 0; i < symbolCount; i++) {
             codeSymbols.push(new CodeSymbol());
         }
-        
+
         // Connect particles
         function connectParticles() {
             for (let i = 0; i < particles.length; i++) {
@@ -1266,13 +1266,13 @@
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
+
                     if (distance < 150) {
                         const opacity = (1 - distance / 150) * 0.2;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        
+
                         // Gradient line
                         const gradient = ctx.createLinearGradient(
                             particles[i].x, particles[i].y,
@@ -1280,7 +1280,7 @@
                         );
                         gradient.addColorStop(0, `hsla(${particles[i].hue}, 70%, 60%, ${opacity})`);
                         gradient.addColorStop(1, `hsla(${particles[j].hue}, 70%, 60%, ${opacity})`);
-                        
+
                         ctx.strokeStyle = gradient;
                         ctx.lineWidth = 1;
                         ctx.stroke();
@@ -1288,33 +1288,33 @@
                 }
             }
         }
-        
+
         // Animation loop
         function animate() {
             // Clear canvas completely (transparent background)
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             // Reset shadow
             ctx.shadowBlur = 0;
-            
+
             // Draw connections
             connectParticles();
-            
+
             // Update and draw particles
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
             });
-            
+
             // Update and draw code symbols
             codeSymbols.forEach(symbol => {
                 symbol.update();
                 symbol.draw();
             });
-            
+
             requestAnimationFrame(animate);
         }
-        
+
         // Start animation when section is visible
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1324,24 +1324,24 @@
                 }
             });
         }, { threshold: 0.1 });
-        
+
         observer.observe(section);
     }
 
     // ============================================
     // Morphing Icon Animation
     // ============================================
-    
+
     function initMorphingIcon() {
         const container = document.querySelector('.morphing-icon-container');
         const svg = document.getElementById('morphingIcon');
         const iconGroup = document.getElementById('iconGroup');
-        
+
         if (!container || !svg || !iconGroup) return;
-        
+
         const stages = document.querySelectorAll('.process-stage');
         if (stages.length === 0) return;
-        
+
         // Définir les formes SVG pour chaque étape
         const shapes = {
             1: { // Discussion - Bulles de conversation
@@ -1367,9 +1367,9 @@
             },
             3: { // Développement - Brackets de code
                 svg: `
-                    <path d="M 70 60 L 80 60 L 70 80 L 80 100 L 70 120 L 80 120" 
+                    <path d="M 70 60 L 80 60 L 70 80 L 80 100 L 70 120 L 80 120"
                           stroke="url(#gradient3)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 130 60 L 120 60 L 130 80 L 120 100 L 130 120 L 120 120" 
+                    <path d="M 130 60 L 120 60 L 130 80 L 120 100 L 130 120 L 120 120"
                           stroke="url(#gradient3)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="100" cy="75" r="3" fill="url(#gradient3)"/>
                     <circle cx="100" cy="90" r="3" fill="url(#gradient3)"/>
@@ -1388,9 +1388,9 @@
             },
             5: { // Livraison - Mains qui se serrent
                 svg: `
-                    <path d="M 70 100 L 70 85 Q 70 75 80 75 L 85 75 L 85 70 Q 85 65 90 65 L 95 65 L 95 70 L 100 70" 
+                    <path d="M 70 100 L 70 85 Q 70 75 80 75 L 85 75 L 85 70 Q 85 65 90 65 L 95 65 L 95 70 L 100 70"
                           stroke="url(#gradient5)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 130 100 L 130 85 Q 130 75 120 75 L 115 75 L 115 70 Q 115 65 110 65 L 105 65 L 105 70 L 100 70" 
+                    <path d="M 130 100 L 130 85 Q 130 75 120 75 L 115 75 L 115 70 Q 115 65 110 65 L 105 65 L 105 70 L 100 70"
                           stroke="url(#gradient5)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     <ellipse cx="70" cy="105" rx="12" ry="18" fill="url(#gradient5)" opacity="0.8"/>
                     <ellipse cx="130" cy="105" rx="12" ry="18" fill="url(#gradient5)" opacity="0.8"/>
@@ -1399,7 +1399,7 @@
                 `
             }
         };
-        
+
         // Créer les gradients
         const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         for (let i = 1; i <= 5; i++) {
@@ -1409,31 +1409,31 @@
             gradient.setAttribute('y1', '0%');
             gradient.setAttribute('x2', '100%');
             gradient.setAttribute('y2', '100%');
-            
+
             const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
             stop1.setAttribute('offset', '0%');
             stop1.setAttribute('style', 'stop-color:#1D4ED8;stop-opacity:1');
-            
+
             const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
             stop2.setAttribute('offset', '100%');
             stop2.setAttribute('style', 'stop-color:#14B8A6;stop-opacity:1');
-            
+
             gradient.appendChild(stop1);
             gradient.appendChild(stop2);
             defs.appendChild(gradient);
         }
         svg.insertBefore(defs, iconGroup);
-        
+
         // Fonction pour changer la forme avec animation smooth
         function morphToShape(stageNumber) {
             const shape = shapes[stageNumber];
             if (!shape) return;
-            
+
             // Animation de sortie: fade out + scale down
             iconGroup.style.opacity = '0';
             iconGroup.style.transform = 'scale(0.8) rotate(-10deg)';
             container.setAttribute('data-position', stageNumber);
-            
+
             setTimeout(() => {
                 iconGroup.innerHTML = shape.svg;
                 // Animation d'entrée: fade in + scale up avec bounce
@@ -1443,15 +1443,15 @@
                 }, 50);
             }, 600);
         }
-        
+
         // Observer pour détecter quelle étape est visible
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '-100px 0px'
         };
-        
+
         let currentStage = 0;
-        
+
         const stageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1463,17 +1463,507 @@
                 }
             });
         }, observerOptions);
-        
+
         stages.forEach(stage => {
             stageObserver.observe(stage);
         });
-        
+
         // Initialiser avec la première forme
         morphToShape(1);
-        
+
         // Styles pour des transitions ultra smooth
         iconGroup.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
         iconGroup.style.transformOrigin = 'center';
+    }
+
+    // ========================================
+    // PAGE ABOUT - ANIMATIONS
+    // ========================================
+
+    /**
+     * Initialise les compteurs animés pour la page About
+     */
+    function initAboutCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-count]');
+
+        if (counters.length === 0) return;
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            let hasAnimated = false;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            // Start animation when element is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(counter);
+        });
+    }
+
+    /**
+     * Initialise l'animation canvas pour la section Values
+     */
+    function initValuesCanvas() {
+        const canvas = document.getElementById('valuesCanvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationId;
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                opacity: Math.random() * 0.5 + 0.1
+            };
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(createParticle());
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                // Rebond sur les bords
+                if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(29, 78, 216, ${particle.opacity})`;
+                ctx.fill();
+            });
+
+            // Dessiner les connexions entre particules proches
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(29, 78, 216, ${0.1 * (1 - distance / 100)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            animationId = requestAnimationFrame(drawParticles);
+        }
+
+        // Initialisation
+        resize();
+        initParticles();
+        drawParticles();
+
+        // Resize handler
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                resize();
+                initParticles();
+            }, 250);
+        });
+
+        // Pause animation quand pas visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) drawParticles();
+                } else {
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                        animationId = null;
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(canvas);
+    }
+
+    /**
+     * Initialise les effets parallax pour la page About
+     */
+    function initAboutParallax() {
+        const orbs = document.querySelectorAll('.hero-gradient-orb');
+
+        if (orbs.length === 0) return;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+
+            orbs.forEach((orb, index) => {
+                const speed = 0.1 + (index * 0.05);
+                orb.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        });
+    }
+
+    /**
+     * Services Page - FAQ Accordion
+     */
+    function initServicesFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        if (faqItems.length === 0) return;
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            if (question) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            const otherQuestion = otherItem.querySelector('.faq-question');
+                            if (otherQuestion) {
+                                otherQuestion.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    question.setAttribute('aria-expanded', !isActive);
+                });
+            }
+        });
+    }
+
+    /**
+     * Services Page - Stats Counter Animation
+     */
+    function initServicesStatsCounter() {
+        const statNumbers = document.querySelectorAll('.services-stats .stat-number[data-count]');
+
+        if (statNumbers.length === 0) return;
+
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(stat => observer.observe(stat));
+    }
+
+    /**
+     * Services Page - Hero Canvas Animation
+     */
+    function initServicesHeroCanvas() {
+        const canvas = document.getElementById('servicesHeroCanvas');
+
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        let particles = [];
+
+        const resize = () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        };
+
+        const createParticles = () => {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 15000);
+
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+            }
+        };
+
+        const drawParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, i) => {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                // Wrap around
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(29, 78, 216, ${particle.opacity})`;
+                ctx.fill();
+
+                // Connect nearby particles
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const dx = particle.x - otherParticle.x;
+                    const dy = particle.y - otherParticle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        ctx.strokeStyle = `rgba(29, 78, 216, ${0.15 * (1 - distance / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            animationId = requestAnimationFrame(drawParticles);
+        };
+
+        resize();
+        createParticles();
+        drawParticles();
+
+        window.addEventListener('resize', () => {
+            resize();
+            createParticles();
+        });
+
+        // Pause when not visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) drawParticles();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(canvas);
+    }
+
+    /**
+     * Contact Page - Form Validation & Submission
+     */
+    function initContactPageForm() {
+        const form = document.getElementById('contactPageForm');
+        const successMessage = document.getElementById('formSuccess');
+
+        if (!form) return;
+
+        const messageInput = document.getElementById('contact-message');
+        const charCount = document.getElementById('charCount');
+
+        // Character counter
+        if (messageInput && charCount) {
+            messageInput.addEventListener('input', () => {
+                const count = messageInput.value.length;
+                charCount.textContent = count;
+
+                if (count > 500) {
+                    charCount.style.color = '#ef4444';
+                } else {
+                    charCount.style.color = '';
+                }
+            });
+        }
+
+        // Form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Validate form
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const submitBtn = form.querySelector('.btn-submit');
+            submitBtn.classList.add('loading');
+
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // Show success message
+            form.style.display = 'none';
+            successMessage.classList.add('show');
+
+            // Reset after 5 seconds
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'block';
+                form.classList.remove('was-validated');
+                successMessage.classList.remove('show');
+                submitBtn.classList.remove('loading');
+                if (charCount) charCount.textContent = '0';
+            }, 5000);
+        });
+    }
+
+    /**
+     * Contact Page - Hero Canvas Animation
+     */
+    function initContactHeroCanvas() {
+        const canvas = document.getElementById('contactHeroCanvas');
+
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        let particles = [];
+
+        const resize = () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        };
+
+        const createParticles = () => {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 18000);
+
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2.5 + 0.5,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    speedY: (Math.random() - 0.5) * 0.4,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+            }
+        };
+
+        const drawParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, i) => {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                // Wrap around
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(29, 78, 216, ${particle.opacity})`;
+                ctx.fill();
+
+                // Connect nearby particles
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const dx = particle.x - otherParticle.x;
+                    const dy = particle.y - otherParticle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        ctx.strokeStyle = `rgba(29, 78, 216, ${0.12 * (1 - distance / 100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            animationId = requestAnimationFrame(drawParticles);
+        };
+
+        resize();
+        createParticles();
+        drawParticles();
+
+        window.addEventListener('resize', () => {
+            resize();
+            createParticles();
+        });
+
+        // Pause when not visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!animationId) drawParticles();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(canvas);
     }
 
     // Initialize animations
@@ -1489,6 +1979,17 @@
             initProjectModal();
             initServicesCanvasAnimation();
             initMorphingIcon();
+            // About page
+            initAboutCounters();
+            initValuesCanvas();
+            initAboutParallax();
+            // Services page
+            initServicesFAQ();
+            initServicesStatsCounter();
+            initServicesHeroCanvas();
+            // Contact page
+            initContactPageForm();
+            initContactHeroCanvas();
         });
     } else {
         initServicesAnimations();
@@ -1501,6 +2002,17 @@
         initProjectModal();
         initServicesCanvasAnimation();
         initMorphingIcon();
+        // About page
+        initAboutCounters();
+        initValuesCanvas();
+        initAboutParallax();
+        // Services page
+        initServicesFAQ();
+        initServicesStatsCounter();
+        initServicesHeroCanvas();
+        // Contact page
+        initContactPageForm();
+        initContactHeroCanvas();
     }
 
 })();

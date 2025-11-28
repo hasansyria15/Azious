@@ -48,9 +48,9 @@ Azious
                         <span>Démarrer un Projet</span>
                         <i class="bi bi-arrow-right" aria-hidden="true"></i>
                     </a>
-                    <a href="#work" class="btn btn-outline-dark btn-lg" role="button">
+                    <a href="{% url 'Interface:services' %}" class="btn btn-outline-dark btn-lg" role="button">
                         <i class="bi bi-play-circle" aria-hidden="true"></i>
-                        <span>Voir nos Réalisations</span>
+                        <span>Voir nos Services</span>
                     </a>
                 </div>
 
@@ -61,7 +61,7 @@ Azious
                         <span class="stat-label">Projets Réalisés</span>
                     </div>
                     <div class="stat-item">
-                        <strong class="stat-number">98%</strong>
+                        <strong class="stat-number">100%</strong>
                         <span class="stat-label">Satisfaction Client</span>
                     </div>
                     <div class="stat-item">
@@ -186,6 +186,36 @@ Azious
                             </ul>
                         </div>
                     </div>
+                    <!-- Mini Website Demo -->
+                    <div class="service-demo" aria-hidden="true">
+                        <div class="demo-website">
+                            <div class="demo-browser">
+                                <div class="browser-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-content">
+                                    <div class="demo-header"></div>
+                                    <div class="demo-nav"><span></span><span></span><span></span><span></span></div>
+                                    <div class="demo-hero">
+                                        <div class="demo-hero-text"></div>
+                                    </div>
+                                    <div class="demo-cards">
+                                        <div class="demo-card">
+                                            <div class="card-icon"></div>
+                                            <div class="card-line"></div>
+                                        </div>
+                                        <div class="demo-card">
+                                            <div class="card-icon"></div>
+                                            <div class="card-line"></div>
+                                        </div>
+                                        <div class="demo-card">
+                                            <div class="card-icon"></div>
+                                            <div class="card-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="demo-btn"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="service-hover-effect"></div>
                 </div>
 
@@ -207,6 +237,45 @@ Azious
                                 <li><i class="bi bi-check-circle-fill"></i> API RESTful</li>
                                 <li><i class="bi bi-check-circle-fill"></i> Sécurité Renforcée</li>
                             </ul>
+                        </div>
+                    </div>
+                    <!-- Mini Application Demo -->
+                    <div class="service-demo" aria-hidden="true">
+                        <div class="demo-application">
+                            <div class="demo-app-window">
+                                <div class="app-header">
+                                    <div class="app-dots"><span></span><span></span><span></span></div>
+                                    <div class="app-title"></div>
+                                </div>
+                                <div class="app-content">
+                                    <div class="app-sidebar">
+                                        <div class="sidebar-item active"><span></span></div>
+                                        <div class="sidebar-item"><span></span></div>
+                                        <div class="sidebar-item"><span></span></div>
+                                        <div class="sidebar-item"><span></span></div>
+                                    </div>
+                                    <div class="app-main">
+                                        <div class="app-chart">
+                                            <div class="chart-bar"></div>
+                                            <div class="chart-bar"></div>
+                                            <div class="chart-bar"></div>
+                                            <div class="chart-bar"></div>
+                                            <div class="chart-bar"></div>
+                                            <div class="chart-bar"></div>
+                                        </div>
+                                        <div class="app-stats">
+                                            <div class="stat-card">
+                                                <div class="stat-value"></div>
+                                                <div class="stat-label"></div>
+                                            </div>
+                                            <div class="stat-card">
+                                                <div class="stat-value"></div>
+                                                <div class="stat-label"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="service-hover-effect"></div>
@@ -232,6 +301,51 @@ Azious
                             </ul>
                         </div>
                     </div>
+                    <!-- Mini Consultation Demo -->
+                    <div class="service-demo" aria-hidden="true">
+                        <div class="demo-consultation">
+                            <div class="demo-strategy">
+                                <div class="strategy-header">
+                                    <div class="strategy-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                                    <div class="strategy-title">
+                                        <div class="title-line"></div>
+                                        <div class="subtitle-line"></div>
+                                    </div>
+                                </div>
+                                <div class="strategy-steps">
+                                    <div class="strategy-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <div class="step-line"></div>
+                                            <div class="step-line"></div>
+                                        </div>
+                                        <div class="step-check completed"></div>
+                                    </div>
+                                    <div class="strategy-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <div class="step-line"></div>
+                                            <div class="step-line"></div>
+                                        </div>
+                                        <div class="step-check completed"></div>
+                                    </div>
+                                    <div class="strategy-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <div class="step-line"></div>
+                                            <div class="step-line"></div>
+                                        </div>
+                                        <div class="step-check"></div>
+                                    </div>
+                                </div>
+                                <div class="strategy-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="service-hover-effect"></div>
                 </div>
 
@@ -253,6 +367,36 @@ Azious
                                 <li><i class="bi bi-check-circle-fill"></i> Optimisation Vitesse</li>
                                 <li><i class="bi bi-check-circle-fill"></i> Migration Technologique</li>
                             </ul>
+                        </div>
+                    </div>
+                    <!-- Mini Refonte Demo -->
+                    <div class="service-demo" aria-hidden="true">
+                        <div class="demo-refonte">
+                            <div class="demo-before">
+                                <div class="before-header">
+                                    <div class="header-dots"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="before-content">
+                                    <div class="old-nav"><span></span><span></span><span></span></div>
+                                    <div class="old-content"></div>
+                                    <div class="old-boxes"><span></span><span></span></div>
+                                </div>
+                                <div class="before-label">Avant</div>
+                            </div>
+                            <div class="refonte-arrow"><i class="bi bi-arrow-right"></i></div>
+                            <div class="demo-after">
+                                <div class="after-header">
+                                    <div class="header-dots"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="after-content">
+                                    <div class="new-nav"><span></span><span></span><span></span></div>
+                                    <div class="new-hero">
+                                        <div class="hero-cta"></div>
+                                    </div>
+                                    <div class="new-cards"><span></span><span></span></div>
+                                </div>
+                                <div class="after-label">Après</div>
+                            </div>
                         </div>
                     </div>
                     <div class="service-hover-effect"></div>
@@ -278,17 +422,105 @@ Azious
                             </ul>
                         </div>
                     </div>
+                    <!-- Mini Maintenance Demo -->
+                    <div class="service-demo" aria-hidden="true">
+                        <div class="demo-maintenance">
+                            <div class="demo-dashboard">
+                                <div class="dashboard-header">
+                                    <div class="dashboard-title"></div>
+                                    <div class="status-badge">
+                                        <div class="status-dot"></div>
+                                        <span>Online</span>
+                                    </div>
+                                </div>
+                                <div class="dashboard-metrics">
+                                    <div class="metric">
+                                        <div class="metric-value">99.9%</div>
+                                        <div class="metric-label"></div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">24/7</div>
+                                        <div class="metric-label"></div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value">&lt;1s</div>
+                                        <div class="metric-label"></div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-activity">
+                                    <div class="activity-header">
+                                        <i class="bi bi-activity"></i>
+                                        <span></span>
+                                    </div>
+                                    <div class="activity-line">
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                        <div class="line-point"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="service-hover-effect"></div>
                 </div>
 
             </div>
 
-            <!-- CTA Button -->
-            <div class="services-cta text-center" data-aos="fade-up" data-aos-delay="600">
-                <a href="#contact" class="btn btn-primary btn-lg">
-                    <span>Discutons de Votre Projet</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+            <!-- CTA Section - Enhanced Design -->
+            <div class="services-cta-wrapper" data-aos="fade-up" data-aos-delay="600">
+                <div class="cta-card">
+                    <div class="cta-background">
+                        <div class="cta-gradient"></div>
+                        <div class="cta-pattern"></div>
+                        <div class="cta-glow"></div>
+                    </div>
+                    <div class="cta-content">
+                        <div class="cta-icon-wrapper">
+                            <div class="cta-icon">
+                                <i class="bi bi-rocket-takeoff-fill"></i>
+                            </div>
+                            <div class="cta-icon-ring"></div>
+                        </div>
+                        <h3 class="cta-title">Prêt à Lancer Votre Projet ?</h3>
+                        <p class="cta-description">
+                            Transformons ensemble votre vision en réalité digitale.
+                            Consultation gratuite et devis personnalisé.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#" class="cta-btn-primary" data-modal="project">
+                                <span>Démarrer Mon Projet</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <a href="#portfolio" class="cta-btn-secondary">
+                                <i class="bi bi-collection-play"></i>
+                                <span>Voir Nos Réalisations</span>
+                            </a>
+                        </div>
+                        <div class="cta-trust">
+                            <div class="trust-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Satisfaction Garantie</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-clock-history"></i>
+                                <span>Réponse sous 24h</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-chat-quote"></i>
+                                <span>Devis Gratuit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -596,102 +828,88 @@ Azious
                 </div>
             </div>
 
-            <!-- Right Side - Contact Form -->
-            <div class="contact-form-wrapper" data-aos="fade-left">
-                <form class="contact-form" id="contactForm" method="post" action="{% url 'Interface:index' %}"
-                    novalidate>
-                    {% csrf_token %}
+            <!-- Right Side - CTA Section -->
+            <div class="contact-cta-wrapper" data-aos="fade-left">
+                <div class="cta-content">
+                    <h3 class="cta-title">Prêt à Transformer Votre Vision ?</h3>
+                    <p class="cta-description">
+                        Rejoignez plus de 150 clients satisfaits qui nous ont fait confiance pour leurs projets
+                        digitaux.
+                    </p>
 
-                    <!-- Row 1: Nom & Prénom -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="contactFirstName" class="form-label">
-                                <i class="bi bi-person"></i>
-                                Nom
-                            </label>
-                            <input type="text" class="form-control" id="contactFirstName" name="firstName"
-                                placeholder="Dupont" required autocomplete="family-name">
-                            <span class="form-error" role="alert"></span>
+                    <!-- Stats Cards - Row 1 -->
+                    <div class="cta-stats-row">
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="stat-icon">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">24h</span>
+                                <span class="stat-label">Réponse Rapide</span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="contactLastName" class="form-label">
-                                <i class="bi bi-person-check"></i>
-                                Prénom
-                            </label>
-                            <input type="text" class="form-control" id="contactLastName" name="lastName"
-                                placeholder="Jean" required autocomplete="given-name">
-                            <span class="form-error" role="alert"></span>
-                        </div>
-                    </div>
-
-                    <!-- Row 2: Email & Téléphone -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="contactEmail" class="form-label">
-                                <i class="bi bi-envelope"></i>
-                                Courriel
-                            </label>
-                            <input type="email" class="form-control" id="contactEmail" name="email"
-                                placeholder="jean.dupont@example.com" required autocomplete="email">
-                            <span class="form-error" role="alert"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactPhone" class="form-label">
-                                <i class="bi bi-telephone"></i>
-                                Numéro de Téléphone
-                            </label>
-                            <input type="tel" class="form-control" id="contactPhone" name="phone"
-                                placeholder="+33 6 12 34 56 78" required autocomplete="tel">
-                            <span class="form-error" role="alert"></span>
+                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="stat-icon">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Service Type Field -->
-                    <div class="form-group">
-                        <label for="contactService" class="form-label">
-                            <i class="bi bi-grid-3x3-gap"></i>
-                            Type de Service
-                        </label>
-                        <select class="form-control" id="contactService" name="service" required>
-                            <option value="" disabled selected>Sélectionnez un service</option>
-                            <option value="website">Sites Web Professionnels</option>
-                            <option value="webapp">Applications Web</option>
-                            <option value="consulting">Consultation & Stratégie</option>
-                            <option value="redesign">Refonte & Amélioration</option>
-                            <option value="maintenance">Maintenance & Support</option>
-                        </select>
-                        <span class="form-error" role="alert"></span>
+                    <!-- Stats Card - Centered -->
+                    <div class="cta-stats-center">
+                        <div class="stat-card stat-card-featured" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="stat-icon">
+                                <i class="bi bi-rocket-takeoff-fill"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Projets Réussis</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Message Field -->
-                    <div class="form-group">
-                        <label for="contactMessage" class="form-label">
-                            <i class="bi bi-chat-left-text"></i>
-                            Décrivez vos Besoins
-                        </label>
-                        <textarea class="form-control" id="contactMessage" name="message" rows="5"
-                            placeholder="Parlez-nous de vos besoins et de vos objectifs..." required></textarea>
-                        <span class="form-error" role="alert"></span>
+                    <!-- CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="#" class="btn-cta-primary" data-modal="project">
+                            <span class="btn-text">Démarrer Mon Projet</span>
+                            <span class="btn-icon"><i class="bi bi-arrow-right"></i></span>
+                            <span class="btn-shine"></span>
+                        </a>
+
+                        <a href="tel:+33612345678" class="btn-cta-secondary">
+                            <i class="bi bi-telephone-fill text-success"></i>
+                            <span class="text-primary">Appelez-nous</span>
+                        </a>
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg btn-submit">
-                            <span class="btn-text">Envoyer le Message</span>
-                            <span class="btn-icon">
-                                <i class="bi bi-send"></i>
-                            </span>
-                            <span class="btn-loader">
-                                <i class="bi bi-arrow-repeat"></i>
-                            </span>
-                        </button>
+                    <!-- Trust Badges -->
+                    <div class="cta-trust">
+                        <div class="trust-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Devis Gratuit</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="bi bi-lock-fill"></i>
+                            <span>100% Sécurisé</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="bi bi-award-fill"></i>
+                            <span>Garantie Qualité</span>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Form Status Message -->
-                    <div class="form-status" role="status" aria-live="polite"></div>
-                </form>
+                <!-- Decorative Elements -->
+                <div class="cta-decoration" aria-hidden="true">
+                    <div class="cta-circle cta-circle-1"></div>
+                    <div class="cta-circle cta-circle-2"></div>
+                    <div class="cta-circle cta-circle-3"></div>
+                </div>
             </div>
         </div>
     </div>

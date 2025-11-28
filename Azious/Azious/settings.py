@@ -29,6 +29,8 @@ ALLOWED_HOSTS = [
     'localhost',
     'hasansyria15.pythonanywhere.com',
     '127.0.0.1',
+    'www.azious.ca',
+    'azious.ca',
 ]
 
 
