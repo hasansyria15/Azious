@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Politique de Cookies - Azious{% endblock %}
+
+{% block meta_description %}Information sur l'utilisation des cookies sur le site Azious. Découvrez quels cookies nous
+utilisons et comment les gérer.{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="legal-hero" role="banner">
+    <div class="legal-hero-bg">
+        <div class="hero-gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="hero-gradient-orb orb-2" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="legal-hero-content" data-aos="fade-up">
+                    <span class="hero-badge">
+                        <i class="bi bi-cookie" aria-hidden="true"></i>
+                        Cookies
+                    </span>
+                    <h1 class="legal-hero-title">
+                        Politique de <span class="gradient-text">Cookies</span>
+                    </h1>
+                    <p class="legal-hero-description">
+                        Informations sur l'utilisation des cookies sur notre site.
+                    </p>
+                    <div class="legal-meta">
+                        <span class="meta-item">
+                            <i class="bi bi-calendar3" aria-hidden="true"></i>
+                            Dernière mise à jour : 28 novembre 2025
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenu Principal -->
+<section class="legal-content" role="main">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="legal-document" data-aos="fade-up">
+
+                    <article class="legal-section" id="section-1">
+                        <div class="section-header">
+                            <span class="section-number">01</span>
+                            <h2>Qu'est-ce qu'un Cookie ?</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Un cookie est un petit fichier texte stocké sur votre ordinateur ou appareil
+                                mobile lorsque vous visitez un site web. Les cookies permettent au site de
+                                reconnaître votre appareil et de mémoriser certaines informations sur votre visite.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="legal-section" id="section-2">
+                        <div class="section-header">
+                            <span class="section-number">02</span>
+                            <h2>Types de Cookies Utilisés</h2>
+                        </div>
+                        <div class="section-content">
+                            <h3>Cookies Essentiels</h3>
+                            <p>
+                                Nécessaires au fonctionnement du site. Ils permettent la navigation et
+                                l'utilisation des fonctionnalités de base.
+                            </p>
+
+                            <h3>Cookies Analytiques</h3>
+                            <p>
+                                Nous aident à comprendre comment les visiteurs utilisent notre site,
+                                afin d'améliorer continuellement l'expérience utilisateur.
+                            </p>
+
+                            <h3>Cookies de Préférences</h3>
+                            <p>
+                                Permettent de mémoriser vos choix (comme la langue) pour personnaliser
+                                votre expérience.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="legal-section" id="section-3">
+                        <div class="section-header">
+                            <span class="section-number">03</span>
+                            <h2>Gestion des Cookies</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Vous pouvez contrôler et/ou supprimer les cookies comme vous le souhaitez.
+                                La plupart des navigateurs web permettent de :
+                            </p>
+                            <ul class="legal-list">
+                                <li>
+                                    <i class="bi bi-gear" aria-hidden="true"></i>
+                                    <span>Voir quels cookies sont stockés et les supprimer individuellement</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-gear" aria-hidden="true"></i>
+                                    <span>Bloquer les cookies tiers</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-gear" aria-hidden="true"></i>
+                                    <span>Bloquer tous les cookies</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-gear" aria-hidden="true"></i>
+                                    <span>Supprimer tous les cookies à la fermeture du navigateur</span>
+                                </li>
+                            </ul>
+                            <div class="warning-box">
+                                <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+                                <p>
+                                    La désactivation des cookies peut affecter le fonctionnement de certaines
+                                    fonctionnalités du site.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="legal-section" id="section-4">
+                        <div class="section-header">
+                            <span class="section-number">04</span>
+                            <h2>Contact</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Pour toute question concernant notre utilisation des cookies :
+                            </p>
+                            <div class="contact-card-legal">
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                                    <div>
+                                        <span class="label">Email</span>
+                                        <a href="mailto:contact@azious.ca">contact@azious.ca</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cta-section-legal">
+                                <p>Besoin de plus d'informations ?</p>
+                                <a href="{% url 'Interface:contact' %}" class="btn btn-legal-cta">
+                                    <i class="bi bi-chat-dots" aria-hidden="true"></i>
+                                    <span>Nous Contacter</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
