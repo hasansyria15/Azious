@@ -136,3 +136,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Configuration
+# Pour la production avec Gmail/Google Workspace
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'noreplay@azious.com'  # Doit être un compte Google Workspace ou Gmail
+EMAIL_HOST_PASSWORD = 'xumg webt fyaj kaap'  # Mot de passe d'application Google
+DEFAULT_FROM_EMAIL = 'noreplay@azious.com'
+BUSINESS_EMAIL = 'Business@azious.com'
+
+# Timeout pour éviter les blocages
+EMAIL_TIMEOUT = 10

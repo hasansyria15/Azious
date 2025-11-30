@@ -200,8 +200,9 @@ Réponse garantie sous 24h.{% endblock %}
                                 </label>
                                 <div class="input-wrapper">
                                     <i class="bi bi-person" aria-hidden="true"></i>
-                                    <input type="text" id="prenom" name="prenom" required 
+                                    <input type="text" id="prenom" name="prenom" class="form-control" required 
                                            placeholder="Votre prénom" autocomplete="given-name">
+                                    <span class="form-error"></span>
                                 </div>
                             </div>
 
@@ -212,8 +213,9 @@ Réponse garantie sous 24h.{% endblock %}
                                 </label>
                                 <div class="input-wrapper">
                                     <i class="bi bi-person-fill" aria-hidden="true"></i>
-                                    <input type="text" id="nom" name="nom" required 
+                                    <input type="text" id="nom" name="nom" class="form-control" required 
                                            placeholder="Votre nom" autocomplete="family-name">
+                                    <span class="form-error"></span>
                                 </div>
                             </div>
 
@@ -224,8 +226,9 @@ Réponse garantie sous 24h.{% endblock %}
                                 </label>
                                 <div class="input-wrapper">
                                     <i class="bi bi-envelope" aria-hidden="true"></i>
-                                    <input type="email" id="email" name="email" required 
+                                    <input type="email" id="email" name="email" class="form-control" required 
                                            placeholder="votre@email.com" autocomplete="email">
+                                    <span class="form-error"></span>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +240,7 @@ Réponse garantie sous 24h.{% endblock %}
                             </label>
                             <div class="input-wrapper">
                                 <i class="bi bi-chat-left-text" aria-hidden="true"></i>
-                                <select id="sujet" name="sujet" required>
+                                <select id="sujet" name="sujet" class="form-control" required>
                                     <option value="" disabled selected>Sélectionnez un sujet</option>
                                     <option value="demande-devis">Demande de devis</option>
                                     <option value="demande-information">Demande d'information</option>
@@ -246,6 +249,7 @@ Réponse garantie sous 24h.{% endblock %}
                                     <option value="support">Support technique</option>
                                     <option value="autre">Autre</option>
                                 </select>
+                                <span class="form-error"></span>
                             </div>
                         </div>
 
@@ -256,22 +260,29 @@ Réponse garantie sous 24h.{% endblock %}
                             </label>
                             <div class="input-wrapper textarea-wrapper">
                                 <i class="bi bi-pencil-square" aria-hidden="true"></i>
-                                <textarea id="message" name="message" rows="6" required
+                                <textarea id="message" name="message" class="form-control" rows="6" required
                                     placeholder="Décrivez votre demande ou votre projet en quelques lignes..."></textarea>
+                                <span class="form-error"></span>
                             </div>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="form-submit-wrapper">
-                            <button type="submit" class="btn-submit-modern">
+                            <button type="submit" class="btn-submit btn-submit-modern">
                                 <span class="btn-text">Envoyer le Message</span>
-                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                                <span class="btn-loader" style="display: none;">
+                                    <i class="bi bi-arrow-repeat spin" aria-hidden="true"></i>
+                                </span>
+                                <i class="bi bi-arrow-right btn-icon" aria-hidden="true"></i>
                             </button>
                             <p class="form-privacy-note">
                                 <i class="bi bi-shield-check" aria-hidden="true"></i>
                                 Vos informations sont protégées et ne seront jamais partagées avec des tiers.
                             </p>
                         </div>
+
+                        <!-- Status Message -->
+                        <div class="form-status" role="status" aria-live="polite" style="display: none;"></div>
                     </form>
                 </div>
             </div>

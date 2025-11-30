@@ -127,7 +127,25 @@
                             </div>
                         </div>
 
-                        <!-- Row 2: Nom d'entreprise (optionnel) -->
+                        <!-- Row 2: Email -->
+                        <div class="form-group">
+                            <label for="modalEmail" class="form-label">
+                                <i class="bi bi-envelope"></i>
+                                Courriel <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                class="form-control" 
+                                id="modalEmail" 
+                                name="email"
+                                placeholder="votre@email.com"
+                                required
+                                autocomplete="email"
+                            >
+                            <span class="form-error" role="alert"></span>
+                        </div>
+
+                        <!-- Row 3: Nom d'entreprise (optionnel) -->
                         <div class="form-group">
                             <label for="modalCompanyName" class="form-label">
                                 <i class="bi bi-building"></i>
@@ -144,7 +162,7 @@
                             <span class="form-error" role="alert"></span>
                         </div>
 
-                        <!-- Row 3: Type d'entreprise -->
+                        <!-- Row 4: Type d'entreprise -->
                         <div class="form-group">
                             <label for="modalCompanyType" class="form-label">
                                 <i class="bi bi-briefcase"></i>
@@ -162,7 +180,7 @@
                             <span class="form-error" role="alert"></span>
                         </div>
 
-                        <!-- Row 4: Service -->
+                        <!-- Row 5: Service -->
                         <div class="form-group">
                             <label for="modalService" class="form-label">
                                 <i class="bi bi-grid-3x3-gap"></i>
@@ -197,7 +215,7 @@
                             <span class="form-error" role="alert"></span>
                         </div>
 
-                        <!-- Row 5: Budget -->
+                        <!-- Row 6: Budget -->
                         <div class="form-group">
                             <label for="modalBudget" class="form-label">
                                 <i class="bi bi-currency-dollar"></i>
@@ -252,13 +270,22 @@
 
                         <!-- Submit Button -->
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-submit">
-                                <span class="btn-text">Démarrer le Projet</span>
-                                <span class="btn-icon">
-                                    <i class="bi bi-rocket-takeoff"></i>
+                            <button type="submit" class="btn-submit-animated">
+                                <span class="btn-content">
+                                    <span class="btn-text">Démarrer le Projet</span>
+                                    <span class="btn-icon">
+                                        <i class="bi bi-rocket-takeoff"></i>
+                                    </span>
                                 </span>
                                 <span class="btn-loader">
-                                    <i class="bi bi-arrow-repeat"></i>
+                                    <svg class="spinner" viewBox="0 0 50 50">
+                                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+                                    </svg>
+                                    <span>Envoi en cours...</span>
+                                </span>
+                                <span class="btn-success">
+                                    <i class="bi bi-check-lg"></i>
+                                    <span>Envoyé !</span>
                                 </span>
                             </button>
                         </div>

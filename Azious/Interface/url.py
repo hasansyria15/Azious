@@ -11,4 +11,7 @@ urlpatterns = [
     path('terms/', views.terms, name='terms'),
     path('privacy/', views.privacy, name='privacy'),
     path('cookies/', views.cookies, name='cookies'),
+    # API endpoints pour les formulaires
+    path('api/submit-contact/', views.submit_contact_form, name='submit_contact'),
+    path('api/submit-project/', views.submit_project_form, name='submit_project'),
 ]

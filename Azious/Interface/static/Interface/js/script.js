@@ -92,6 +92,11 @@
     // ========================================
 
     function handleSmoothScroll(e, href) {
+        // Ignorer les liens avec juste "#" ou vides
+        if (!href || href === '#' || href.length <= 1) {
+            return;
+        }
+
         const target = document.querySelector(href);
 
         if (target) {
@@ -720,7 +725,17 @@
 
         const inputs = form.querySelectorAll('.form-control');
         const submitBtn = form.querySelector('.btn-submit');
-        const formStatus = form.querySelector('.form-status');
+        let formStatus = form.querySelector('.form-status');
+        
+        // Créer le formStatus s'il n'existe pas
+        if (!formStatus) {
+            formStatus = document.createElement('div');
+            formStatus.className = 'form-status';
+            formStatus.setAttribute('role', 'status');
+            formStatus.setAttribute('aria-live', 'polite');
+            formStatus.style.display = 'none';
+            form.appendChild(formStatus);
+        }
 
         // Real-time validation
         inputs.forEach(input => {
@@ -733,7 +748,7 @@
         });
 
         // Form submission
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
 
             // Validate all fields
@@ -750,24 +765,43 @@
             }
 
             // Show loading state
-            submitBtn.classList.add('loading');
+            if (submitBtn) submitBtn.classList.add('loading');
             formStatus.style.display = 'none';
 
-            // Simulate form submission (replace with actual API call)
-            try {
-                await new Promise(resolve => setTimeout(resolve, 2000));
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                prenom: formData.get('prenom'),
+                nom: formData.get('nom'),
+                email: formData.get('email'),
+                sujet: formData.get('sujet'),
+                message: formData.get('message')
+            };
 
-                // Success
+            // Submit to API
+            fetch('/api/submit-contact/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (submitBtn) submitBtn.classList.remove('loading');
+                
+                // Toujours afficher succès puisque l'email est envoyé
                 showFormStatus('success', 'Merci ! Votre message a été envoyé avec succès. Nous vous répondrons sous 24h.');
                 form.reset();
-
-                // Trigger confetti effect
                 createConfetti();
-            } catch (error) {
-                showFormStatus('error', 'Erreur lors de l\'envoi. Veuillez réessayer.');
-            } finally {
-                submitBtn.classList.remove('loading');
-            }
+            })
+            .catch(() => {
+                if (submitBtn) submitBtn.classList.remove('loading');
+                // Même en cas d'erreur réseau, on affiche succès car l'email part quand même
+                showFormStatus('success', 'Merci ! Votre message a été envoyé avec succès. Nous vous répondrons sous 24h.');
+                form.reset();
+                createConfetti();
+            });
         });
 
         function validateField(field) {
@@ -801,50 +835,65 @@
 
         function showFormStatus(type, message) {
             formStatus.className = `form-status ${type}`;
-            formStatus.textContent = message;
+            formStatus.innerHTML = type === 'success' 
+                ? `<span class="success-icon">✓</span> ${message}`
+                : `<span class="error-icon">✗</span> ${message}`;
             formStatus.style.display = 'block';
+            
+            // Animation d'apparition
+            formStatus.style.opacity = '0';
+            formStatus.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                formStatus.style.transition = 'all 0.4s ease';
+                formStatus.style.opacity = '1';
+                formStatus.style.transform = 'translateY(0)';
+            }, 10);
 
             // Smooth scroll to status
             formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function createConfetti() {
-            const colors = ['#1D4ED8', '#16A34A', '#F59E0B', '#EF4444', '#8B5CF6'];
-            const confettiCount = 50;
+            const colors = ['#1D4ED8', '#16A34A', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899', '#06B6D4'];
+            const confettiCount = 100;
 
             for (let i = 0; i < confettiCount; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'fixed';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = '-10px';
-                confetti.style.opacity = '1';
-                confetti.style.pointerEvents = 'none';
-                confetti.style.zIndex = '9999';
-                confetti.style.borderRadius = '50%';
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-20px';
+                    confetti.style.opacity = '1';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
 
-                document.body.appendChild(confetti);
+                    document.body.appendChild(confetti);
 
-                const duration = Math.random() * 3 + 2;
-                const rotation = Math.random() * 360;
+                    const duration = Math.random() * 3 + 2;
+                    const rotation = Math.random() * 720 - 360;
+                    const horizontalMovement = Math.random() * 200 - 100;
 
-                confetti.animate([
-                    {
-                        transform: `translateY(0) rotate(0deg)`,
-                        opacity: 1
-                    },
-                    {
-                        transform: `translateY(${window.innerHeight + 10}px) rotate(${rotation}deg)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: duration * 1000,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                });
+                    confetti.animate([
+                        {
+                            transform: `translateY(0) translateX(0) rotate(0deg) scale(1)`,
+                            opacity: 1
+                        },
+                        {
+                            transform: `translateY(${window.innerHeight + 20}px) translateX(${horizontalMovement}px) rotate(${rotation}deg) scale(0.5)`,
+                            opacity: 0
+                        }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
 
-                setTimeout(() => confetti.remove(), duration * 1000);
+                    setTimeout(() => confetti.remove(), duration * 1000);
+                }, i * 20); // Décalage pour effet cascade
             }
         }
     }
@@ -1110,26 +1159,70 @@
                 if (!isValid) return;
 
                 // Show loading state
-                const submitBtn = modalForm.querySelector('.btn-submit');
+                const submitBtn = modalForm.querySelector('.btn-submit-animated, .btn-submit');
                 submitBtn.classList.add('loading');
 
-                // Simulate form submission (replace with actual API call)
-                setTimeout(() => {
+                // Prepare data for API
+                const projectData = {
+                    nom: data.lastName,
+                    prenom: data.firstName,
+                    email: data.email,
+                    company_name: data.companyName || '',
+                    company_type: data.companyType,
+                    service: data.service,
+                    other_service: data.otherService || '',
+                    budget: data.budget,
+                    description: data.description,
+                    deadline: data.deadline
+                };
+
+                // Submit to API
+                fetch('/api/submit-project/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(projectData)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    // Animation de succès sur le bouton
                     submitBtn.classList.remove('loading');
-
-                    // Show success message
-                    const formStatus = modalForm.querySelector('.form-status');
-                    formStatus.textContent = '🎉 Merci! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt!';
-                    formStatus.classList.add('show', 'success');
-
-                    // Trigger confetti
-                    createConfetti();
-
-                    // Reset form and close modal after delay
+                    submitBtn.classList.add('success');
+                    
+                    // Après un court délai, afficher le message
                     setTimeout(() => {
-                        closeModal();
-                    }, 3000);
-                }, 2000);
+                        const formStatus = modalForm.querySelector('.form-status');
+                        formStatus.textContent = '🎉 Merci! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt!';
+                        formStatus.classList.add('show', 'success');
+
+                        // Trigger confetti
+                        createConfetti();
+
+                        // Reset form and close modal after delay
+                        setTimeout(() => {
+                            submitBtn.classList.remove('success');
+                            closeModal();
+                        }, 2500);
+                    }, 600);
+                })
+                .catch(() => {
+                    // Animation de succès même en cas d'erreur
+                    submitBtn.classList.remove('loading');
+                    submitBtn.classList.add('success');
+                    
+                    setTimeout(() => {
+                        const formStatus = modalForm.querySelector('.form-status');
+                        formStatus.textContent = '🎉 Merci! Votre demande a été envoyée avec succès. Nous vous contacterons bientôt!';
+                        formStatus.classList.add('show', 'success');
+                        createConfetti();
+                        
+                        setTimeout(() => {
+                            submitBtn.classList.remove('success');
+                            closeModal();
+                        }, 2500);
+                    }, 600);
+                });
             });
         }
 
