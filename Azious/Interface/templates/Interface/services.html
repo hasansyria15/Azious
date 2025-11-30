@@ -48,11 +48,11 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
                 de votre transformation digitale avec des solutions innovantes et performantes.
             </p>
             <div class="hero-cta-row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <a href="#services-list" class="btn btn-hero-primary">
-                    <span>Découvrir Nos Services</span>
-                    <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                <a href="{% url 'Interface:about' %}" class="btn btn-hero-primary">
+                    <span>Découvrir Qui Nous Sommes</span>
+                   
                 </a>
-                <a href="{% url 'Interface:index' %}#contact" class="btn btn-hero-secondary">
+                <a href="#" class="btn btn-hero-secondary" data-modal="project">
                     <span>Demander un Devis</span>
                     <i class="bi bi-chat-dots" aria-hidden="true"></i>
                 </a>
@@ -649,7 +649,7 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
                     et obtenir un devis personnalisé gratuit.
                 </p>
                 <div class="cta-buttons">
-                    <a href="{% url 'Interface:index' %}#contact" class="btn btn-cta-primary">
+                    <a href="#" class="btn btn-cta-primary"data-modal="project">
                         <span>Demander un Devis Gratuit</span>
                         <i class="bi bi-arrow-right" aria-hidden="true"></i>
                     </a>
