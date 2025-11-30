@@ -1,266 +1,300 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Nous Contacter - Azious | Développement Web au Québec{% endblock %}
+{% block title %}Nous Contacter - Azious | Développement Web Professionnel{% endblock %}
 
-{% block meta_description %}Contactez Azious pour votre projet web au Québec. Consultation gratuite, devis sous 48h,
-réponse garantie sous 24h. Équipe locale dédiée à votre réussite.{% endblock %}
+{% block meta_description %}Contactez Azious pour votre projet web. Consultation gratuite, devis personnalisé sous 48h,
+réponse garantie sous 24h. Équipe dédiée à votre réussite digitale.{% endblock %}
 
-{% block meta_keywords %}contact azious, devis site web québec, projet web, consultation gratuite, développement web
-québec
+{% block meta_keywords %}contact azious, devis site web, projet web, consultation gratuite, développement web
 {% endblock %}
 
-{% block og_title %}Nous Contacter - Azious | Développement Web au Québec{% endblock %}
+{% block og_title %}Nous Contacter - Azious | Développement Web Professionnel{% endblock %}
 
-{% block og_description %}Vous avez un projet web ? Contactez notre équipe québécoise pour une consultation gratuite.
+{% block og_description %}Vous avez un projet web ? Contactez notre équipe pour une consultation gratuite.
 Réponse garantie sous 24h.{% endblock %}
 
 {% block og_image %}{% static 'Interface/img/services/consulting_strategique.png' %}{% endblock %}
 
-{% block twitter_title %}Nous Contacter - Azious | Développement Web au Québec{% endblock %}
-{% block twitter_description %}Vous avez un projet web ? Contactez notre équipe québécoise pour une consultation
-gratuite.
+{% block twitter_title %}Nous Contacter - Azious | Développement Web Professionnel{% endblock %}
+{% block twitter_description %}Vous avez un projet web ? Contactez notre équipe pour une consultation gratuite.
 {% endblock %}
 {% block twitter_image %}{% static 'Interface/img/services/consulting_strategique.png' %}{% endblock %}
 
 {% block content %}
 
 <!-- Hero Section Contact -->
-<section class="contact-hero-simple" role="banner" aria-label="Section contact">
+<section class="contact-hero" role="banner" aria-label="Section contact">
     <div class="contact-hero-bg">
         <div class="hero-gradient-orb orb-1" aria-hidden="true"></div>
         <div class="hero-gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="hero-gradient-orb orb-3" aria-hidden="true"></div>
     </div>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <div class="contact-hero-content" data-aos="fade-up" data-aos-duration="800">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+                <div class="contact-hero-content">
                     <span class="hero-badge">
-                        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-                        Équipe basée au Québec
+                        <i class="bi bi-chat-dots-fill" aria-hidden="true"></i>
+                        Commençons la Discussion
                     </span>
                     <h1 class="contact-hero-title">
-                        Parlons de Votre <span class="gradient-text">Projet</span>
+                        Transformons Vos <span class="gradient-text">Idées</span> en Réalité
                     </h1>
                     <p class="contact-hero-description">
-                        Vous avez une question ou un projet en tête ? Remplissez le formulaire ci-dessous
-                        et notre équipe vous répondra dans les plus brefs délais.
+                        Vous avez un projet web en tête ? Notre équipe d'experts est là pour vous accompagner 
+                        de la conception à la réalisation. Contactez-nous dès maintenant pour une consultation gratuite.
                     </p>
+                    
+                    <!-- Quick Contact Methods -->
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800">
+                <div class="contact-hero-stats">
+                    <div class="stat-card-contact">
+                        <div class="stat-icon-contact">
+                            <i class="bi bi-people-fill" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-content-contact">
+                            <span class="stat-number-contact">30+</span>
+                            <span class="stat-label-contact">Clients Satisfaits</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-contact">
+                        <div class="stat-icon-contact">
+                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-content-contact">
+                            <span class="stat-number-contact">5.0</span>
+                            <span class="stat-label-contact">Note Moyenne</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-contact">
+                        <div class="stat-icon-contact">
+                            <i class="bi bi-award-fill" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-content-contact">
+                            <span class="stat-number-contact">50+</span>
+                            <span class="stat-label-contact">Projets Réalisés</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Section Avantages - 3 colonnes -->
-<section class="contact-benefits" role="region" aria-label="Nos avantages">
+<!-- Section Formulaire de Contact et Informations -->
+<section class="contact-main-section" id="contact-form" role="region" aria-label="Formulaire de contact">
     <div class="container">
-        <div class="benefits-grid" data-aos="fade-up">
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="bi bi-clock-fill" aria-hidden="true"></i>
-                </div>
-                <h3>Réponse Rapide</h3>
-                <p>Nous répondons à toutes les demandes dans un délai maximum de <strong>24 heures</strong>.</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="bi bi-file-earmark-text-fill" aria-hidden="true"></i>
-                </div>
-                <h3>Devis Gratuit</h3>
-                <p>Recevez un devis détaillé et transparent sous <strong>48 heures</strong>, sans engagement.</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="bi bi-people-fill" aria-hidden="true"></i>
-                </div>
-                <h3>Équipe Locale</h3>
-                <p>Une équipe <strong>québécoise</strong> qui comprend vos besoins et votre marché.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section Formulaire de Contact -->
-<section class="contact-form-section" id="contact-form" role="region" aria-label="Formulaire de contact">
-    <div class="container">
-        <!-- Barre d'infos contact -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-lg-8">
-                <div class="contact-info-bar" data-aos="fade-up">
-                    <div class="info-bar-item">
-                        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-                        <a href="mailto:contact@azious.ca">contact@azious.ca</a>
+        <div class="row g-4">
+            <!-- Colonne Gauche: Informations de Contact -->
+            <div class="col-lg-4">
+                <div class="contact-info-card" data-aos="fade-right">
+                    <div class="info-card-header">
+                        <h2>Informations de Contact</h2>
+                        <p>N'hésitez pas à nous contacter par ces différents moyens</p>
                     </div>
-                    <div class="info-bar-item">
-                        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-                        <span>Québec, Canada</span>
-                    </div>
-                    <div class="info-bar-item">
-                        <i class="bi bi-clock-fill" aria-hidden="true"></i>
-                        <span>Lun - Ven : 9h à 18h</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="contact-form-wrapper" data-aos="fade-up">
-                    <div class="form-side">
-                        <div class="form-header">
-                            <span class="section-badge">
-                                <i class="bi bi-envelope-paper" aria-hidden="true"></i>
-                                Écrivez-nous
-                            </span>
-                            <h2>Envoyez-nous un Message</h2>
-                            <p>Remplissez le formulaire et nous vous répondrons sous 24h.</p>
+                    <div class="contact-info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-envelope-at-fill" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-details">
+                                <h3>Email</h3>
+                                <a href="mailto:contact@azious.com">contact@azious.com</a>
+                                <span class="info-subtitle">Réponse sous 24h</span>
+                            </div>
                         </div>
 
-                        <form class="contact-form" id="contactForm" method="POST" action="">
-                            {% csrf_token %}
-
-                            <!-- Nom et Prénom -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="prenom">
-                                        <i class="bi bi-person" aria-hidden="true"></i>
-                                        Prénom <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom"
-                                        autocomplete="given-name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nom">
-                                        <i class="bi bi-person" aria-hidden="true"></i>
-                                        Nom <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="nom" name="nom" required placeholder="Votre nom"
-                                        autocomplete="family-name">
-                                </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone-fill" aria-hidden="true"></i>
                             </div>
-
-                            <!-- Email et Téléphone -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">
-                                        <i class="bi bi-envelope" aria-hidden="true"></i>
-                                        Courriel <span class="required">*</span>
-                                    </label>
-                                    <input type="email" id="email" name="email" required placeholder="votre@email.com"
-                                        autocomplete="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="telephone">
-                                        <i class="bi bi-telephone" aria-hidden="true"></i>
-                                        Téléphone
-                                    </label>
-                                    <input type="tel" id="telephone" name="telephone" placeholder="(514) 123-4567"
-                                        autocomplete="tel">
-                                </div>
+                            <div class="info-details">
+                                <h3>Téléphone</h3>
+                                <a href="tel:+15141234567">+1 (514) 123-4567</a>
+                                <span class="info-subtitle">Lun - Ven, 9h - 18h</span>
                             </div>
+                        </div>
 
-                            <!-- Sujet -->
-                            <div class="form-group full-width">
-                                <label for="sujet">
-                                    <i class="bi bi-chat-left-text" aria-hidden="true"></i>
-                                    Sujet <span class="required">*</span>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                            </div>
+                            <div class="info-details">
+                                <h3>Localisation</h3>
+                                <span>Québec, Canada</span>
+                                <span class="info-subtitle">Service disponible partout</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links-contact">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-icons-contact">
+                            <a href="#" class="social-icon-link" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="GitHub">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="Twitter">
+                                <i class="bi bi-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-icon-link" aria-label="Facebook">
+                                <i class="bi bi-facebook" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pourquoi nous choisir -->
+                <div class="why-choose-card" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Pourquoi Nous Choisir ?</h3>
+                    <ul class="why-choose-list">
+                        <li>
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Expertise technique reconnue</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Support réactif et personnalisé</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Délais respectés garantis</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <span>Tarifs transparents et compétitifs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Colonne Droite: Formulaire -->
+            <div class="col-lg-8">
+                <div class="contact-form-card" data-aos="fade-left">
+                    <div class="form-card-header">
+                        <span class="section-badge">
+                            <i class="bi bi-envelope-paper-fill" aria-hidden="true"></i>
+                            Formulaire de Contact
+                        </span>
+                        <h2>Envoyez-nous un Message</h2>
+                        <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+
+                    <form class="modern-contact-form" id="contactForm" method="POST" action="">
+                        {% csrf_token %}
+
+                        <div class="form-grid">
+                            <!-- Prénom -->
+                            <div class="form-field">
+                                <label for="prenom">
+                                    Prénom <span class="required">*</span>
                                 </label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-person" aria-hidden="true"></i>
+                                    <input type="text" id="prenom" name="prenom" required 
+                                           placeholder="Votre prénom" autocomplete="given-name">
+                                </div>
+                            </div>
+
+                            <!-- Nom -->
+                            <div class="form-field">
+                                <label for="nom">
+                                    Nom <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-person-fill" aria-hidden="true"></i>
+                                    <input type="text" id="nom" name="nom" required 
+                                           placeholder="Votre nom" autocomplete="family-name">
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-field full-width">
+                                <label for="email">
+                                    Courriel <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <i class="bi bi-envelope" aria-hidden="true"></i>
+                                    <input type="email" id="email" name="email" required 
+                                           placeholder="votre@email.com" autocomplete="email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sujet -->
+                        <div class="form-field full-width">
+                            <label for="sujet">
+                                Sujet <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="bi bi-chat-left-text" aria-hidden="true"></i>
                                 <select id="sujet" name="sujet" required>
                                     <option value="" disabled selected>Sélectionnez un sujet</option>
-                                    <option value="devis">Demande de devis</option>
-                                    <option value="information">Demande d'information</option>
+                                    <option value="demande-devis">Demande de devis</option>
+                                    <option value="demande-information">Demande d'information</option>
+                                    <option value="nouveau-projet">Nouveau projet</option>
                                     <option value="collaboration">Proposition de collaboration</option>
                                     <option value="support">Support technique</option>
                                     <option value="autre">Autre</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <!-- Message -->
-                            <div class="form-group full-width">
-                                <label for="message">
-                                    <i class="bi bi-pencil-square" aria-hidden="true"></i>
-                                    Message <span class="required">*</span>
-                                </label>
-                                <textarea id="message" name="message" rows="5" required
-                                    placeholder="Décrivez votre projet ou votre question..."></textarea>
+                        <!-- Message -->
+                        <div class="form-field full-width">
+                            <label for="message">
+                                Message <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                                <textarea id="message" name="message" rows="6" required
+                                    placeholder="Décrivez votre demande ou votre projet en quelques lignes..."></textarea>
                             </div>
+                        </div>
 
-                            <!-- Bouton Submit -->
-                            <div class="form-submit">
-                                <button type="submit" class="btn btn-submit">
-                                    <i class="bi bi-send-fill" aria-hidden="true"></i>
-                                    <span>Envoyer le Message</span>
-                                </button>
-                                <p class="form-note">
-                                    <i class="bi bi-shield-check" aria-hidden="true"></i>
-                                    Vos informations sont protégées et ne seront jamais partagées.
-                                </p>
-                            </div>
-                        </form>
-                    </div>
+                        <!-- Submit Button -->
+                        <div class="form-submit-wrapper">
+                            <button type="submit" class="btn-submit-modern">
+                                <span class="btn-text">Envoyer le Message</span>
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </button>
+                            <p class="form-privacy-note">
+                                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                                Vos informations sont protégées et ne seront jamais partagées avec des tiers.
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="contact-faq-simple" role="region" aria-label="Questions fréquentes">
+<!-- CTA Section -->
+<section class="contact-cta-section" role="region" aria-label="Appel à l'action">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <span class="section-badge" data-aos="fade-up">
-                    <i class="bi bi-question-circle" aria-hidden="true"></i>
-                    FAQ
-                </span>
-                <h2 class="section-title" data-aos="fade-up">Questions Fréquentes</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="bi bi-clock" aria-hidden="true"></i>
-                            <h3>Combien de temps pour créer un site web ?</h3>
-                        </div>
-                        <p>Selon la complexité, comptez 2 à 8 semaines. Un site vitrine simple prend environ 2-3
-                            semaines,
-                            tandis qu'une application web sur mesure peut prendre 6-8 semaines.</p>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="bi bi-currency-dollar" aria-hidden="true"></i>
-                            <h3>Combien coûte un site web ?</h3>
-                        </div>
-                        <p>Nos tarifs varient selon vos besoins. Un site vitrine commence autour de 1 500$,
-                            une boutique en ligne à partir de 3 000$, et une application web sur mesure à partir de 5
-                            000$.</p>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="bi bi-tools" aria-hidden="true"></i>
-                            <h3>Offrez-vous la maintenance après livraison ?</h3>
-                        </div>
-                        <p>Oui ! Nous proposons des forfaits de maintenance mensuels pour garder votre site à jour,
-                            sécurisé et performant.</p>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <i class="bi bi-globe2" aria-hidden="true"></i>
-                            <h3>Travaillez-vous à distance ?</h3>
-                        </div>
-                        <p>Absolument ! Nous travaillons avec des clients partout au Québec et au Canada
-                            grâce à nos outils de communication.</p>
-                    </div>
+        <div class="contact-cta-card" data-aos="zoom-in">
+            <div class="cta-content-contact">
+                <h2>Vous Préférez Discuter Directement ?</h2>
+                <p>Notre équipe est disponible pour répondre à toutes vos questions par téléphone ou email.</p>
+                <div class="cta-buttons-contact">
+                    <a href="tel:+15141234567" class="btn-contact-cta primary">
+                        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                        <span>Appelez-nous</span>
+                    </a>
+                    <a href="mailto:contact@azious.com" class="btn-contact-cta secondary">
+                        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                        <span>Envoyez un Email</span>
+                    </a>
                 </div>
             </div>
         </div>

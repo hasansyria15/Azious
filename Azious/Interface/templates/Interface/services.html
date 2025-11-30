@@ -85,16 +85,6 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
-                    <i class="bi bi-people-fill" aria-hidden="true"></i>
-                </div>
-                <div class="stat-content">
-                    <span class="stat-number" data-count="40">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Clients Satisfaits</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
                     <i class="bi bi-award-fill" aria-hidden="true"></i>
                 </div>
                 <div class="stat-content">
@@ -542,110 +532,6 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
     </div>
 </section>
 
-<!-- Pricing Section -->
-<section class="services-pricing" role="region" aria-label="Nos formules">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge">
-                <i class="bi bi-tag-fill" aria-hidden="true"></i>
-                Tarification Transparente
-            </span>
-            <h2 class="section-title">Nos Formules</h2>
-            <p class="section-subtitle">
-                Des solutions adaptées à chaque budget et à chaque ambition.
-                Contactez-nous pour un devis personnalisé.
-            </p>
-        </div>
-
-        <div class="pricing-grid">
-            <!-- Starter Plan -->
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="pricing-header">
-                    <span class="pricing-badge">Essentiel</span>
-                    <h3 class="pricing-title">Starter</h3>
-                    <p class="pricing-description">
-                        Parfait pour les petites entreprises et startups
-                    </p>
-                </div>
-                <div class="pricing-price">
-                    <span class="price-currency">$</span>
-                    <span class="price-amount">999</span>
-                    <span class="price-period">à partir de</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Site vitrine jusqu'à 5 pages</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Design responsive</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Optimisation SEO de base</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Formulaire de contact</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> 1 mois de support</li>
-                </ul>
-                <a href="{% url 'Interface:contact' %}" class="btn btn-pricing">
-                    <span>Nous Contacter</span>
-                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
-                </a>
-            </div>
-
-            <!-- Business Plan -->
-            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-popular">
-                    <i class="bi bi-star-fill" aria-hidden="true"></i>
-                    Populaire
-                </div>
-                <div class="pricing-header">
-                    <span class="pricing-badge">Recommandé</span>
-                    <h3 class="pricing-title">Business</h3>
-                    <p class="pricing-description">
-                        Idéal pour les entreprises en croissance
-                    </p>
-                </div>
-                <div class="pricing-price">
-                    <span class="price-currency">$</span>
-                    <span class="price-amount">2,499</span>
-                    <span class="price-period">à partir de</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Site jusqu'à 15 pages</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Design sur mesure</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> SEO avancé</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Blog intégré</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Panneau d'administration</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> 3 mois de support</li>
-                </ul>
-                <a href="{% url 'Interface:contact' %}" class="btn btn-pricing-featured">
-                    <span>Nous Contacter</span>
-                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
-                </a>
-            </div>
-
-            <!-- Enterprise Plan -->
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="pricing-header">
-                    <span class="pricing-badge">Premium</span>
-                    <h3 class="pricing-title">Enterprise</h3>
-                    <p class="pricing-description">
-                        Solutions complètes pour les grandes entreprises
-                    </p>
-                </div>
-                <div class="pricing-price">
-                    <span class="price-custom">Sur Devis</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Application web complète</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Architecture sur mesure</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> API & Intégrations</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Sécurité renforcée</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Formation équipe</li>
-                    <li><i class="bi bi-check-lg" aria-hidden="true"></i> Support prioritaire 12 mois</li>
-                </ul>
-                <a href="{% url 'Interface:contact' %}" class="btn btn-pricing">
-                    <span>Nous Contacter</span>
-                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- FAQ Section -->
 <section class="services-faq" role="region" aria-label="Questions fréquentes">
     <div class="container">
@@ -665,14 +551,16 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             <!-- FAQ 1 -->
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq1">
-                    <span>Combien de temps faut-il pour créer un site web ?</span>
+                    <span>Combien coûte la création d'un site web ?</span>
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="faq-answer" id="faq1">
                     <p>
-                        Le délai dépend de la complexité du projet. Un site vitrine prend généralement
-                        2 à 4 semaines, tandis qu'une application web complexe peut nécessiter
-                        2 à 6 mois. Nous établissons un planning détaillé dès le début du projet.
+                        Le coût varie selon la complexité et les fonctionnalités souhaitées. 
+                        Un site vitrine simple peut débuter à partir de 999$, tandis qu'une application 
+                        web sur mesure avec des fonctionnalités avancées peut nécessiter un investissement 
+                        plus important. Nous offrons des devis personnalisés gratuits pour répondre 
+                        précisément à vos besoins et budget.
                     </p>
                 </div>
             </div>
@@ -680,14 +568,16 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             <!-- FAQ 2 -->
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq2">
-                    <span>Proposez-vous des contrats de maintenance ?</span>
+                    <span>Combien de temps faut-il pour développer un site web ?</span>
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="faq-answer" id="faq2">
                     <p>
-                        Oui, nous proposons des contrats de maintenance mensuels ou annuels
-                        qui incluent les mises à jour de sécurité, le monitoring, les sauvegardes
-                        régulières et un support technique dédié.
+                        Le délai dépend de la portée du projet. Un site vitrine standard prend 
+                        généralement 2 à 4 semaines, un site e-commerce 6 à 8 semaines, et une 
+                        application web complexe peut nécessiter 3 à 6 mois. Nous établissons 
+                        un calendrier détaillé avec des jalons clairs dès le début du projet pour 
+                        garantir une livraison dans les temps.
                     </p>
                 </div>
             </div>
@@ -695,14 +585,16 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             <!-- FAQ 3 -->
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq3">
-                    <span>Mon site sera-t-il optimisé pour les mobiles ?</span>
+                    <span>Assurez-vous la maintenance et les mises à jour après le lancement ?</span>
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="faq-answer" id="faq3">
                     <p>
-                        Absolument ! Tous nos sites sont développés avec une approche "Mobile-First".
-                        Ils s'adaptent parfaitement à tous les écrans : smartphones, tablettes,
-                        ordinateurs portables et moniteurs de bureau.
+                        Absolument ! Nous proposons des forfaits de maintenance mensuels ou annuels 
+                        qui incluent les mises à jour de sécurité, les correctifs de bugs, les 
+                        sauvegardes régulières, le monitoring 24/7 et un support technique prioritaire. 
+                        Nous restons votre partenaire à long terme pour assurer la performance et la 
+                        sécurité continue de votre site.
                     </p>
                 </div>
             </div>
@@ -710,14 +602,16 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             <!-- FAQ 4 -->
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq4">
-                    <span>Puis-je modifier mon site moi-même après la livraison ?</span>
+                    <span>Mon site sera-t-il optimisé pour le référencement (SEO) ?</span>
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="faq-answer" id="faq4">
                     <p>
-                        Oui, nous développons des interfaces d'administration intuitives
-                        qui vous permettent de modifier le contenu de votre site en toute autonomie.
-                        Nous offrons également une formation pour vous accompagner.
+                        Oui, tous nos sites sont développés avec les meilleures pratiques SEO en tête. 
+                        Cela inclut l'optimisation de la vitesse de chargement, la structure HTML 
+                        sémantique, les balises meta appropriées, la compatibilité mobile, et une 
+                        architecture technique solide. Nous pouvons également proposer des services 
+                        SEO avancés pour améliorer votre visibilité sur les moteurs de recherche.
                     </p>
                 </div>
             </div>
@@ -725,14 +619,16 @@ Découvrez comment Azious peut transformer votre présence digitale.{% endblock 
             <!-- FAQ 5 -->
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false" aria-controls="faq5">
-                    <span>Quels modes de paiement acceptez-vous ?</span>
+                    <span>Que se passe-t-il si je ne suis pas satisfait du résultat ?</span>
                     <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="faq-answer" id="faq5">
                     <p>
-                        Nous acceptons les virements bancaires, PayPal et les paiements par carte.
-                        Les projets sont généralement réglés en plusieurs étapes :
-                        30% à la signature, 40% à mi-parcours et 30% à la livraison.
+                        Votre satisfaction est notre priorité. Nous travaillons en étroite collaboration 
+                        avec vous à chaque étape, avec des points de validation réguliers. Nos forfaits 
+                        incluent des révisions pour ajuster le design et les fonctionnalités selon vos 
+                        retours. Nous ne considérons le projet terminé que lorsque vous êtes pleinement 
+                        satisfait du résultat final.
                     </p>
                 </div>
             </div>

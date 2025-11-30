@@ -500,9 +500,9 @@ Azious
                                 <span>Démarrer Mon Projet</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
-                            <a href="#portfolio" class="cta-btn-secondary">
+                            <a href="{% url 'Interface:services' %}" class="cta-btn-secondary">
                                 <i class="bi bi-collection-play"></i>
-                                <span>Voir Nos Réalisations</span>
+                                <span>Voir Nos Services</span>
                             </a>
                         </div>
                         <div class="cta-trust">
@@ -881,7 +881,7 @@ Azious
                             <span class="btn-shine"></span>
                         </a>
 
-                        <a href="tel:+33612345678" class="btn-cta-secondary">
+                        <a href="tel:+18193861289" class="btn-cta-secondary">
                             <i class="bi bi-telephone-fill text-success"></i>
                             <span class="text-primary">Appelez-nous</span>
                         </a>
@@ -920,8 +920,5 @@ Azious
         <div class="decoration-gradient decoration-gradient-2"></div>
     </div>
 </section>
-
-<!-- Include Project Modal -->
-{% include 'Interface/partiels/_module-Project.html' %}
 
 {% endblock %}

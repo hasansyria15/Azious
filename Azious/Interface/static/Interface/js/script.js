@@ -1012,6 +1012,24 @@
             }
         });
 
+        // Handle "Other service" conditional field
+        const serviceSelect = document.getElementById('modalService');
+        const otherServiceField = document.getElementById('otherServiceField');
+        const otherServiceInput = document.getElementById('modalOtherService');
+        
+        if (serviceSelect && otherServiceField) {
+            serviceSelect.addEventListener('change', function() {
+                if (this.value === 'autre') {
+                    otherServiceField.style.display = 'block';
+                    otherServiceInput.setAttribute('required', 'required');
+                } else {
+                    otherServiceField.style.display = 'none';
+                    otherServiceInput.removeAttribute('required');
+                    otherServiceInput.value = '';
+                }
+            });
+        }
+
         // Modal form submission
         if (modalForm) {
             modalForm.addEventListener('submit', (e) => {
@@ -1053,22 +1071,39 @@
                     isValid = false;
                 }
 
-                // Validate phone
-                const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
-                if (!data.phone || !phoneRegex.test(data.phone)) {
-                    showError('modalPhone', 'Veuillez entrer un numéro de téléphone valide (min. 10 chiffres)');
+                // Validate company type
+                if (!data.companyType) {
+                    showError('modalCompanyType', 'Veuillez sélectionner un type d\'entreprise');
                     isValid = false;
                 }
 
                 // Validate service
                 if (!data.service) {
-                    showError('modalService', 'Veuillez sélectionner un type de service');
+                    showError('modalService', 'Veuillez sélectionner un service');
                     isValid = false;
                 }
 
-                // Validate message
-                if (!data.message || data.message.trim().length < 10) {
-                    showError('modalMessage', 'Veuillez décrire vos besoins (min. 10 caractères)');
+                // Validate other service if selected
+                if (data.service === 'autre' && (!data.otherService || data.otherService.trim().length < 3)) {
+                    showError('modalOtherService', 'Veuillez préciser le service (min. 3 caractères)');
+                    isValid = false;
+                }
+
+                // Validate budget
+                if (!data.budget) {
+                    showError('modalBudget', 'Veuillez sélectionner un budget');
+                    isValid = false;
+                }
+
+                // Validate description
+                if (!data.description || data.description.trim().length < 20) {
+                    showError('modalDescription', 'Veuillez décrire votre projet (min. 20 caractères)');
+                    isValid = false;
+                }
+
+                // Validate deadline
+                if (!data.deadline) {
+                    showError('modalDeadline', 'Veuillez sélectionner un délai');
                     isValid = false;
                 }
 
